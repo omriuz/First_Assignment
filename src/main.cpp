@@ -25,15 +25,7 @@ int main(int argc, char** argv){
         return 0;
     }
     string configurationFile = argv[1];
-    string my_text_in_file;
-    ifstream my_config_file(configurationFile);
-    while (getline (my_config_file, my_text_in_file)) {
-          // Output the text from the file
-      cout << my_text_in_file<<endl;
-    }
-    // Close the file
-    my_config_file.close();
-    //Studio studio(configurationFile);
+    Studio studio(configurationFile);
     //studio.start();
     bool run = true;
     if(backup!=nullptr){

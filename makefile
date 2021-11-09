@@ -1,21 +1,25 @@
 # All Targets
-all: main
+all: run
 
 # Tool invocations
 # Executable "hello" depends on the files hello.o and run.o.
 
-main: bin/main.o
-	@echo 'Building target: main'
+run: bin/main.o bin/Studio.o bin/Trainer.o
+	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
-	g++ -o bin/main bin/main.o
+	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o
 	@echo 'Finished building target: main'
 	@echo ' '
 
 # Depends on the source and header files
-bin/main.o: src/main.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/main.o src/main.cpp
+bin/main.o: src/main.cpp 
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/main.o src/main.cpp 
 
+bin/Studio.o: src/Studio.cpp
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Studio.o src/Studio.cpp 
 
+bin/Trainer.o: src/Trainer.cpp
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp 
 #Clean the build directory
 clean:
 	@echo 'cleaning'
