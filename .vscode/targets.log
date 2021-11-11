@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Nov 11 17:13:01 2021
+# Make data base, printed on Thu Nov 11 18:56:50 2021
 
 # Variables
 
@@ -83,7 +83,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1152,unix/spl211:/tmp/.ICE-unix/1152
+SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1197,unix/spl211:/tmp/.ICE-unix/1197
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -113,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 29810
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1787
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +129,7 @@ PWD = /home/spl211/First_assignment
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1276
+SSH_AGENT_PID = 1331
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -183,7 +183,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9c44a5a0-b64d-429b-9ab6-9677e964129d.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b65dbc1c-aa64-4c1f-b208-12895a121861.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
@@ -259,7 +259,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 29892
+VSCODE_PID = 1832
 # variable set hash-table stats:
 # Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
 
@@ -282,9 +282,8 @@ VSCODE_PID = 29892
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 16:54:30.813
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 24):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Customer.o src/Customer.cpp
 
@@ -306,10 +305,9 @@ src/Studio.cpp:
 
 # Not a target:
 src/Action.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-10 10:13:18.056
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
@@ -321,9 +319,8 @@ bin/Studio.o: src/Studio.cpp
 
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 16:54:30.977
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 27):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
 
@@ -348,42 +345,24 @@ makefile:
 
 # Not a target:
 src/Workout.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-11 14:46:20.184843
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/Trainer.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-11 14:25:45.731924999
+#  Last modified 2021-11-11 17:15:09.813
 #  File has been updated.
 #  Successfully updated.
 
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := run
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
-# automatic
-# | := 
-# automatic
-# < := bin/main.o
-# automatic
-# ^ := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
-# automatic
-# ? := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'makefile', line 7):
 	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
@@ -401,18 +380,36 @@ clean:
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 16:54:30.961
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 30):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
 	
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  Last modified 2021-11-11 16:54:30.797
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := bin/Trainer.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/Trainer.cpp
+# automatic
+# | := 
+# automatic
+# < := src/Trainer.cpp
+# automatic
+# ^ := src/Trainer.cpp
+# automatic
+# ? := src/Trainer.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'makefile', line 21):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp
 
@@ -433,10 +430,9 @@ bin/main.o: src/main.cpp
 
 # Not a target:
 src/Customer.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-10 10:13:22.132
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
 # Load=18/1024=2%, Rehash=0, Collisions=1/50=2%
@@ -452,6 +448,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Thu Nov 11 17:13:01 2021
+# Finished Make data base on Thu Nov 11 18:56:50 2021
 
  
