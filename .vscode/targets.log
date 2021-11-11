@@ -1,34 +1,21 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Thu Nov 11 15:35:52 2021
- 
+# Make data base, printed on Thu Nov 11 17:13:01 2021
 
 # Variables
- 
 
- 
 # 'override' directive
- 
 GNUMAKEFLAGS := 
- 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
- 
 # environment
 DESKTOP_SESSION = ubuntu
 # default
@@ -56,11 +43,11 @@ CURDIR := /home/spl211/First_assignment
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/79
+SNAP_DATA = /var/snap/code/80
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /snap/code/79/usr/share/code/code
+_ = /snap/code/80/usr/share/code/code
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -88,7 +75,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/spl211
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/79/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/80/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -104,9 +91,9 @@ GDK_PIXBUF_MODULE_FILE = /home/spl211/snap/code/common/.cache/gdk-pixbuf-loaders
 # environment
 TEXTDOMAIN = im-config
 # environment
-SNAP = /snap/code/79
+SNAP = /snap/code/80
 # environment
-SNAP_VERSION = b3318bc0
+SNAP_VERSION = f4af3cbf
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -116,7 +103,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=e711df3d-bc6f-467f-a440-d8d64bc13441&iid=e711df3d-bc6f-467f-a440-d8d64bc13441&sid=e711df3d-bc6f-467f-a440-d8d64bc13441","uploadToServer":true}
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/79/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/80/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -126,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 9764
+GIO_LAUNCHED_DESKTOP_FILE_PID = 29810
 # automatic
 %F = $(notdir $%)
 # environment
@@ -156,7 +143,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/b3318bc0524af3d74034b8bb8a64df0ccf35549a
+VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/f4af3cbf5a99787542e2a30fe1fd37cd644cc31f
 # environment
 LOGNAME = spl211
 # environment
@@ -190,19 +177,19 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/spl211/snap/code/79
+SNAP_USER_DATA = /home/spl211/snap/code/80
 # environment
 SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1975e9ce-c79b-4886-a600-6114b4e40046.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9c44a5a0-b64d-429b-9ab6-9677e964129d.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
 USER = spl211
 # environment
-SNAP_REVISION = 79
+SNAP_REVISION = 80
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -216,7 +203,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.1-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -272,7 +259,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 9804
+VSCODE_PID = 29892
 # variable set hash-table stats:
 # Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
 
@@ -291,10 +278,11 @@ VSCODE_PID = 9804
 # No implicit rules.
 
 # Files
+ 
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 14:54:39.854553
+#  Last modified 2021-11-11 16:54:30.813
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 24):
@@ -307,13 +295,12 @@ all: run
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 # Not a target:
 src/Studio.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-11 15:27:10.021149
+#  Last modified 2021-11-11 17:10:26.393
 #  File has been updated.
 #  Successfully updated.
 
@@ -326,7 +313,7 @@ src/Action.cpp:
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 15:27:12.202238999
+#  Last modified 2021-11-11 17:10:37.413
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 18):
@@ -334,7 +321,7 @@ bin/Studio.o: src/Studio.cpp
 
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 15:35:39.351687
+#  Last modified 2021-11-11 16:54:30.977
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 27):
@@ -392,7 +379,6 @@ run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Acti
 # automatic
 # < := bin/main.o
 # automatic
- 
 # ^ := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 # automatic
 # ? := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
@@ -415,7 +401,7 @@ clean:
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 15:35:39.327675
+#  Last modified 2021-11-11 16:54:30.961
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 30):
@@ -424,23 +410,22 @@ bin/Workout.o: src/Workout.cpp
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 14:54:39.838544999
+#  Last modified 2021-11-11 16:54:30.797
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 21):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp
 
 # Not a target:
- 
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-09 16:15:13.032279774
+#  Last modified 2021-11-11 17:07:44.217
 #  File has been updated.
 #  Successfully updated.
 
 bin/main.o: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 14:54:38.713983
+#  Last modified 2021-11-11 17:07:44.929
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 15):
@@ -467,6 +452,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Thu Nov 11 15:35:52 2021
+# Finished Make data base on Thu Nov 11 17:13:01 2021
 
  

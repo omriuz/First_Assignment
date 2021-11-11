@@ -11,14 +11,7 @@ using namespace std;
 
 class Studio{		
 public:
-    /*
-    in the start():
-    we need to construct all the trainers
-    then list them into a vector of pointers to those trainers(trainers)
-    then do the same thing to the workouts
-    for some reason this one is not of pointers
-    change the bool open to true
-    */
+
 	Studio();
     Studio(const std::string &configFilePath);
     void start();
