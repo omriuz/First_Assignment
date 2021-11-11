@@ -1,0 +1,9 @@
+make all --dry-run --keep-going --print-directory
+make: Entering directory '/home/spl211/First_assignment'
+echo 'Building target: run'
+echo 'Invoking: C++ Linker'
+g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o
+echo 'Finished building target: run'
+echo ' '
+make: Leaving directory '/home/spl211/First_assignment'
+ 

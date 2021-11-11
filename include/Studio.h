@@ -7,6 +7,7 @@
 #include "Trainer.h"
 #include "Action.h"
 
+using namespace std;
 
 class Studio{		
 public:
@@ -25,6 +26,8 @@ public:
     Trainer* getTrainer(int tid);
 	const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
     std::vector<Workout>& getWorkoutOptions();
+    void tokenize(string &str, char delim, vector<int> &out);
+    void tokenize(string &str, char delim, vector<string> &out);
 
 private:
     bool open;

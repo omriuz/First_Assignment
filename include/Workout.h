@@ -3,6 +3,8 @@
 
 #include <string>
 
+using namespace std;
+
 enum WorkoutType{
     ANAEROBIC, MIXED, CARDIO
 };

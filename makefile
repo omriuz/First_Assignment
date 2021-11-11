@@ -2,12 +2,11 @@
 all: run
 
 # Tool invocations
-# Executable "hello" depends on the files hello.o and run.o.
 
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
-	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o
+	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o
 	@echo 'Finished building target: run'
 	@echo ' '
 
@@ -25,10 +24,10 @@ bin/Customer.o: src/Customer.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Customer.o src/Customer.cpp
 
 bin/Action.o: src/Action.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/.Action.o src/Action.cpp
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
 
 bin/Workout.o: src/Workout.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/.Workout.o src/Workout.cpp
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
 	
 #Clean the build directory
 clean:
