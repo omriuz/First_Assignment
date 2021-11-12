@@ -21,3 +21,9 @@ std::string BaseAction::getErrorMsg() const{
 // OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList):trainerId(id){
 
 // };
+
+
+
+//// sad 
+//asd sad 
+//fgdg 
