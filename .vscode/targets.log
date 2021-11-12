@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Nov 12 13:41:38 2021
+# Make data base, printed on Fri Nov 12 13:48:15 2021
 
 # Variables
 
@@ -113,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2008
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2967
 # automatic
 %F = $(notdir $%)
 # environment
@@ -183,7 +183,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d0b368d1-576d-49a0-ac51-6f6ba99c3e0f.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-56188cf1-7915-4689-b1d7-a26978b99e9d.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
@@ -259,7 +259,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2049
+VSCODE_PID = 3007
 # variable set hash-table stats:
 # Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
 
@@ -278,10 +278,10 @@ VSCODE_PID = 2049
 # No implicit rules.
 
 # Files
+ 
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
- 
 #  Last modified 2021-11-11 18:57:36.553242017
 #  File has been updated.
 #  Successfully updated.
@@ -452,6 +452,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Fri Nov 12 13:41:40 2021
+# Finished Make data base on Fri Nov 12 13:48:15 2021
 
  
