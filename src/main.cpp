@@ -2,6 +2,12 @@
 #include <iostream>
 #include <fstream>
 
+/*
+new comment
+
+
+*/
+
 using namespace std;
 
 Studio* backup = nullptr;
@@ -38,7 +44,7 @@ static BaseAction* buildAction(string input, studio &studio){
     if(actionType.comper("open") == 0){
         // <traner Id> <customer1_name>,<customer1_strategy> <customer2_name>,<customer2_strategy>
         int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
-        Costumer *newCostumer;
+        Customer *newCostumer;
         std::vector<Customer*> customersList = new vector();
         while(startIndex != input.len()){
             std::string name = getWorld(startIndex&, ',', input);
