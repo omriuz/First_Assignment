@@ -7,17 +7,11 @@
 #include "Trainer.h"
 #include "Action.h"
 
+using namespace std;
 
 class Studio{		
 public:
-    /*
-    in the start():
-    we need to construct all the trainers
-    then list them into a vector of pointers to those trainers(trainers)
-    then do the same thing to the workouts
-    for some reason this one is not of pointers
-    change the bool open to true
-    */
+
 	Studio();
     Studio(const std::string &configFilePath);
     void start();
@@ -25,15 +19,14 @@ public:
     Trainer* getTrainer(int tid);
 	const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
     std::vector<Workout>& getWorkoutOptions();
-    void incrementCId();
-    int getCustomerId();
+    void tokenize(string &str, char delim, vector<int> &out);
+    void tokenize(string &str, char delim, vector<string> &out);
 
 private:
     bool open;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;
     std::vector<BaseAction*> actionsLog;
-    int customerId;
 };
 
 #endif
