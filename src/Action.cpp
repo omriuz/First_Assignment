@@ -1,5 +1,6 @@
 #include "Action.h"
-
+////
+//
 //class:BaseAction
 //TODO: check for diffrent initalization in constructor
 BaseAction::BaseAction():errorMsg(""){};
