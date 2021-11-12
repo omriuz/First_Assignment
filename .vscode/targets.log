@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Nov 11 18:56:50 2021
+# Make data base, printed on Fri Nov 12 13:41:38 2021
 
 # Variables
 
@@ -43,11 +43,11 @@ CURDIR := /home/spl211/First_assignment
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/80
+SNAP_DATA = /var/snap/code/81
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-_ = /snap/code/80/usr/share/code/code
+_ = /snap/code/81/usr/share/code/code
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -75,7 +75,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/spl211
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/80/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/81/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -83,7 +83,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1197,unix/spl211:/tmp/.ICE-unix/1197
+SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1183,unix/spl211:/tmp/.ICE-unix/1183
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -91,9 +91,9 @@ GDK_PIXBUF_MODULE_FILE = /home/spl211/snap/code/common/.cache/gdk-pixbuf-loaders
 # environment
 TEXTDOMAIN = im-config
 # environment
-SNAP = /snap/code/80
+SNAP = /snap/code/81
 # environment
-SNAP_VERSION = f4af3cbf
+SNAP_VERSION = 3a6960b9
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -103,7 +103,7 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=e711df3d-bc6f-467f-a440-d8d64bc13441&iid=e711df3d-bc6f-467f-a440-d8d64bc13441&sid=e711df3d-bc6f-467f-a440-d8d64bc13441","uploadToServer":true}
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/80/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/81/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -113,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 1787
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2008
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +129,7 @@ PWD = /home/spl211/First_assignment
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1331
+SSH_AGENT_PID = 1316
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -143,7 +143,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/f4af3cbf5a99787542e2a30fe1fd37cd644cc31f
+VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/3a6960b964327f0e3882ce18fcebd07ed191b316
 # environment
 LOGNAME = spl211
 # environment
@@ -177,19 +177,19 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/spl211/snap/code/80
+SNAP_USER_DATA = /home/spl211/snap/code/81
 # environment
 SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b65dbc1c-aa64-4c1f-b208-12895a121861.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d0b368d1-576d-49a0-ac51-6f6ba99c3e0f.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
 USER = spl211
 # environment
-SNAP_REVISION = 80
+SNAP_REVISION = 81
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -203,7 +203,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.2-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -259,7 +259,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1832
+VSCODE_PID = 2049
 # variable set hash-table stats:
 # Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
 
@@ -278,12 +278,13 @@ VSCODE_PID = 1832
 # No implicit rules.
 
 # Files
- 
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+ 
+#  Last modified 2021-11-11 18:57:36.553242017
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 24):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Customer.o src/Customer.cpp
 
@@ -305,13 +306,14 @@ src/Studio.cpp:
 
 # Not a target:
 src/Action.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2021-11-11 19:25:46.229656
+#  File has been updated.
+#  Successfully updated.
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 17:10:37.413
+#  Last modified 2021-11-11 18:57:36.349140024
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 18):
@@ -319,8 +321,9 @@ bin/Studio.o: src/Studio.cpp
 
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2021-11-11 19:25:49.707393999
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 27):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
 
@@ -345,9 +348,10 @@ makefile:
 
 # Not a target:
 src/Workout.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2021-11-11 14:46:20.184843
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/Trainer.cpp:
@@ -358,11 +362,28 @@ src/Trainer.cpp:
 
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := run
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
+# automatic
+# | := 
+# automatic
+# < := bin/main.o
+# automatic
+# ^ := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
+# automatic
+# ? := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'makefile', line 7):
 	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
@@ -380,36 +401,18 @@ clean:
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Last modified 2021-11-11 18:57:36.713322011
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 30):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
 	
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2021-11-11 16:54:30.797
+#  Last modified 2021-11-11 18:57:36.537234017
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := bin/Trainer.o
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := src/Trainer.cpp
-# automatic
-# | := 
-# automatic
-# < := src/Trainer.cpp
-# automatic
-# ^ := src/Trainer.cpp
-# automatic
-# ? := src/Trainer.cpp
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 21):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp
 
@@ -422,7 +425,7 @@ src/main.cpp:
 
 bin/main.o: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-11 17:07:44.929
+#  Last modified 2021-11-11 18:57:35.788860045
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 15):
@@ -430,9 +433,10 @@ bin/main.o: src/main.cpp
 
 # Not a target:
 src/Customer.cpp:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2021-11-10 10:13:22.132
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
 # Load=18/1024=2%, Rehash=0, Collisions=1/50=2%
@@ -448,6 +452,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Thu Nov 11 18:56:50 2021
+# Finished Make data base on Fri Nov 12 13:41:40 2021
 
  
