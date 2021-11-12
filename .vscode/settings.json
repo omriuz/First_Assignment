@@ -46,5 +46,6 @@
             "binaryPath": "/home/spl211/First_assignment/bin/run",
             "binaryArgs": []
         }
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }

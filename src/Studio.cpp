@@ -78,6 +78,9 @@ int Studio::getNumOfTrainers() const{
     return trainers.size();
 };
 Trainer* Studio::getTrainer(int tid){
+    if(tid<0 || tid>=trainers.size()){
+        return NULL;
+    }
     //built upon the face that a trainer id is his order in the vecotr
     return trainers[tid];
 };

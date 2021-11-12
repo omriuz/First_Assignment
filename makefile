@@ -6,7 +6,7 @@ all: run
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
-	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o
+	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o bin/Customer.o
 	@echo 'Finished building target: run'
 	@echo ' '
 
