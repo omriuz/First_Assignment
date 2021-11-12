@@ -16,7 +16,7 @@ static std::string getWorld(std::size_t* startIndex, char sep, const std::string
 }
 
 static Customer* builsCustomer(std::string name, std::string strategy, studio &studio){
-    Customer customer;
+    Customer *customer;
     if(strategy.comper("swt") == 0){ //Sweaty Customer
         Customer = new SweatyCustomer(name,studio.getCustomerId());
     }else if(strategy.comper("chp") == 0){ //Cheap Customer
