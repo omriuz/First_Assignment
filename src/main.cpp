@@ -58,7 +58,9 @@ static BaseAction* buildAction(string input, studio &studio){
         action = new Order(trainerId);
 
     }else if(actionType.comper("move") == 0){
-        
+        //
+        //
+        //
     }else if(actionType.comper("close") == 0){
         
     }else if(actionType.comper("closeall") == 0){
