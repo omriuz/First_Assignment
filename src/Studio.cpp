@@ -46,10 +46,20 @@ Studio :: Studio(const std::string &configFilePath):open(true){
     }
     my_config_file.close();
 };
-
-studio :: incrementCId(){
-    this.customerId++;
-}
+ void Studio::tokenize(string &str, char delim, vector<int> &out)
+{
+	size_t start;
+	size_t end = 0;
+    stringstream ss;
+	while ((start = str.find_first_not_of(delim, end)) != string::npos)
+	{
+		end = str.find(delim, start);
+        ss << str.substr(start, end - start);
+        int temp;
+        ss >> temp;
+		out.push_back(temp);
+        ss.clear();
+	}
 }
 void Studio::tokenize(string &str, char delim, vector<string> &out)
 {
@@ -62,3 +72,19 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 		out.push_back(str.substr(start, end - start-1));
 	}
 }
+void Studio::start(){
+    open = true;
+};
+int Studio::getNumOfTrainers() const{
+    return trainers.size();
+};
+Trainer* Studio::getTrainer(int tid){
+    //built upon the face that a trainer id is his order in the vecotr
+    return trainers[tid];
+};
+// const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
+// std::vector<Workout>& getWorkoutOptions();
+std::vector<Workout>& Studio::getWorkoutOptions(){
+    return workout_options;
+};
+
