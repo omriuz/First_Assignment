@@ -97,7 +97,7 @@ int main(int argc, char** argv){
     }
     string configurationFile = argv[1];
     Studio studio(configurationFile);
-    //studio.start();
+    studio.start();
     bool run = true;
     if(backup!=nullptr){
     	delete backup;
