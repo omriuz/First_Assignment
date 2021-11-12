@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Nov 12 14:10:38 2021
+# Make data base, printed on Fri Nov 12 17:24:12 2021
 
 # Variables
 
@@ -28,8 +28,6 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 2
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -45,9 +43,9 @@ SHELL = /bin/sh
 # environment
 SNAP_DATA = /var/snap/code/81
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+VTE_VERSION = 5201
 # environment
-_ = /snap/code/81/usr/share/code/code
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -59,7 +57,7 @@ MAKEFILE_LIST :=  makefile
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+IM_CONFIG_PHASE = 2
 # environment
 USERNAME = spl211
 # environment
@@ -73,7 +71,7 @@ CLUTTER_IM_MODULE = xim
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/spl211
+VSCODE_CWD = /home/spl211/First_assignment
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/81/usr/share/glib-2.0/schemas
 # default
@@ -107,13 +105,11 @@ GDK_PIXBUF_MODULEDIR = /snap/code/81/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4755
 # automatic
 %F = $(notdir $%)
 # environment
@@ -170,6 +166,8 @@ XDG_VTNR = 1
 MAKELEVEL := 0
 # environment
 SNAP_REAL_HOME = /home/spl211
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -183,7 +181,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-ea1804a0-e3ed-42f3-a6a8-6a6232514f38.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9b5b0a21-c963-42cf-9bd8-ebb5f6215865.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
@@ -198,14 +196,14 @@ XDG_CURRENT_DESKTOP = Unity
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/spl211
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.2-main.sock
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -240,8 +238,12 @@ LC_ALL = C
 QT4_IM_MODULE = xim
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b9c64963_10a9_4632_b921_2af41480f038
 # automatic
 ^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.486
 # default
 SUFFIXES := 
 # environment
@@ -259,9 +261,11 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4796
+TERM = xterm-256color
+# environment
+VSCODE_PID = 7644
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
+# Load=127/1024=12%, Rehash=0, Collisions=18/155=12%
 
 # Pattern-specific Variable Values
 
@@ -272,13 +276,13 @@ VSCODE_PID = 4796
 # . (device 2049, inode 922720): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
+ 
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
- 
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
@@ -444,6 +448,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Fri Nov 12 14:10:38 2021
+# Finished Make data base on Fri Nov 12 17:24:12 2021
 
  
