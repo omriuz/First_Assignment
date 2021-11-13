@@ -1,9 +1,11 @@
 #ifndef ACTION_H_
 #define ACTION_H_
 
+//need to make sure we dont include to much
 #include <string>
 #include <iostream>
 #include "Customer.h"
+#include "Trainer.h"
 
 enum ActionStatus{
     COMPLETED, ERROR

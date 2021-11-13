@@ -6,14 +6,14 @@ using namespace std;
 
 Studio* backup = nullptr;
 
-static std::string getWorld(std::size_t* startIndex, char sep, const std::string input){
-    std::size_t endIndex = input.find_first_of(sep);
-    std::size_t len = endIndex - *startIndex + 1;
-    std::string output;
-    input.copy(output, len, *startIndex);
-    *startIndex = endIndex + 1;
+// static std::string getWorld(std::size_t* startIndex, char sep, const std::string input){
+//     std::size_t endIndex = input.find_first_of(sep);
+//     std::size_t len = endIndex - *startIndex + 1;
+//     std::string output;
+//     input.copy(output, len, *startIndex);
+//     *startIndex = endIndex + 1;
 
-}
+// }
 
 static Customer* builsCustomer(std::string name, std::string strategy, studio &studio){
     Customer *customer;
@@ -28,55 +28,55 @@ static Customer* builsCustomer(std::string name, std::string strategy, studio &s
     }
     studio.incrementCId();
     return customer&;
+
     
-}  
+// }  
 
-static BaseAction* buildAction(string input, studio &studio){
-    std::size_t tartIndex = 0;
-    BaseAction action;
-    actionType = getWorld(startIndex&,' ', input);
-    if(actionType.comper("open") == 0){
-        // <traner Id> <customer1_name>,<customer1_strategy> <customer2_name>,<customer2_strategy>
-        int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
-        Costumer *newCostumer;
-        std::vector<Customer*> customersList = new vector();
-        while(startIndex != input.len()){
-            std::string name = getWorld(startIndex&, ',', input);
-            std::string strategy = getWorld(startIndex&, ' ', input);
-            // need to figure out how is deleting customers.
-            newCostumer = builsCustomer(name, strategy, studio);
-            customerList.push_back(&newCostumer);
-            // set the trainer vector of customers
-            studio.getTrainer(trainerId).addCustomer(&newCostumer)
-        }
+// static BaseAction* buildAction(string input, studio &studio){
+//     std::size_t tartIndex = 0;
+//     BaseAction action;
+//     actionType = getWorld(startIndex&,' ', input);
+//     if(actionType.comper("open") == 0){
+//         // <traner Id> <customer1_name>,<customer1_strategy> <customer2_name>,<customer2_strategy>
+//         int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
+//         Costumer *newCostumer;
+//         std::vector<Customer*> customersList = new vector();
+//         while(startIndex != input.len()){
+//             std::string name = getWorld(startIndex&, ',', input);
+//             std::string strategy = getWorld(startIndex&, ' ', input);
+//             // need to figure out how is deleting customers.
+//             newCostumer = builsCustomer(name, strategy, studio);
+//             customerList.push_back(&newCostumer);
+//             // set the trainer vector of customers
+//             studio.getTrainer(trainerId).addCustomer(&newCostumer)
+//         }
               
-        // OpenTrainer(int id, std::vector<Customer *> &customersList);
-        action = new OpenTrainer(trainerId, customerList);  
+//         // OpenTrainer(int id, std::vector<Customer *> &customersList);
+//         action = new OpenTrainer(trainerId, customerList);  
 
-    }else if(actionType.comper("order") == 0){
-        int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
-        action = new Order(trainerId);
+//     }else if(actionType.comper("order") == 0){
+//         int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
+//         action = new Order(trainerId);
 
-    }else if(actionType.comper("move") == 0){
-        //
-        //
-        //
-    }else if(actionType.comper("close") == 0){
+
+//     }else if(actionType.comper("move") == 0){
         
-    }else if(actionType.comper("closeall") == 0){
+//     }else if(actionType.comper("close") == 0){
         
-    }else if(actionType.comper("workout_option") == 0){
+//     }else if(actionType.comper("closeall") == 0){
         
-    }else if(actionType.comper("status") == 0){
+//     }else if(actionType.comper("workout_option") == 0){
         
-    }else if(actionType.comper("log") == 0){
+//     }else if(actionType.comper("status") == 0){
         
-    }else if(actionType.comper("backup") == 0){
+//     }else if(actionType.comper("log") == 0){
         
-    }else if(actionType.comper("restore") == 0){
+//     }else if(actionType.comper("backup") == 0){
         
-    }
-    return action;
+//     }else if(actionType.comper("restore") == 0){
+        
+//     }
+//     return action;
 
 
     /*
@@ -90,8 +90,8 @@ static BaseAction* buildAction(string input, studio &studio){
     then use the addCustomer method of trainer
     after we built all the customers
     we want to send a refence of the customerList in the trainer to the action
-    */
-}  
+//     */
+// }  
 int main(int argc, char** argv){
     if(argc!=2){
         std::cout << "usage: studio <config_path>" << std::endl;
