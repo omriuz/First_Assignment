@@ -15,19 +15,20 @@ Studio* backup = nullptr;
 
 // }
 
-// static Customer* builsCustomer(std::string name, std::string strategy, studio &studio){
-//     Customer customer;
-//     if(strategy.comper("swt") == 0){ //Sweaty Customer
-//         Customer = new SweatyCustomer(name,studio.getCustomerId());
-//     }else if(strategy.comper("chp") == 0){ //Cheap Customer
-//         Customer = new CheapCustomer(name,studio.getCustomerId());
-//     }else if(strategy.comper("mcl") == 0){ //Heavy Muscle Customer
-//         Customer = new HeavyMuscleCustomer(name,studio.getCustomerId());
-//     }else if(strategy.comper("fbd") == 0){ //Full Body Customer
-//         Customer = new FullBodyCustomer(name,studio.getCustomerId());
-//     }
-//     studio.incrementCId();
-//     return customer&;
+static Customer* builsCustomer(std::string name, std::string strategy, studio &studio){
+    Customer *customer;
+    if(strategy.comper("swt") == 0){ //Sweaty Customer
+        Customer = new SweatyCustomer(name,studio.getCustomerId());
+    }else if(strategy.comper("chp") == 0){ //Cheap Customer
+        Customer = new CheapCustomer(name,studio.getCustomerId());
+    }else if(strategy.comper("mcl") == 0){ //Heavy Muscle Customer
+        Customer = new HeavyMuscleCustomer(name,studio.getCustomerId());
+    }else if(strategy.comper("fbd") == 0){ //Full Body Customer
+        Customer = new FullBodyCustomer(name,studio.getCustomerId());
+    }
+    studio.incrementCId();
+    return customer&;
+
     
 // }  
 
@@ -56,6 +57,7 @@ Studio* backup = nullptr;
 //     }else if(actionType.comper("order") == 0){
 //         int trainerId = std::stoi(getWorld(startIndex& , ' ', input));
 //         action = new Order(trainerId);
+
 
 //     }else if(actionType.comper("move") == 0){
         
