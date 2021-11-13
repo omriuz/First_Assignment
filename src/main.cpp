@@ -106,6 +106,12 @@ int main(int argc, char** argv){
     Studio studio(configurationFile);
     studio.start();
     bool run = true;
+    while(run){
+        std::string input;
+        std::cout << "please enter the requested action";
+        std::cin >> input;
+        buildAction(input,studio);
+    }
     if(backup!=nullptr){
     	delete backup;
     	backup = nullptr;
