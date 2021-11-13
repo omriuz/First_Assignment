@@ -12,13 +12,15 @@ using namespace std;
 
 Studio* backup = nullptr;
 
+
 static std::string getWorld(std::size_t* startIndex, char sep, const std::string input){
     std::size_t endIndex = input.find_first_of(sep);
     std::size_t len = endIndex - *startIndex + 1;
     std::string output = input.substr(*startIndex, len);
     *startIndex = endIndex + 1;
 
-}
+// }
+
 
 static Customer* builsCustomer(std::string name, std::string strategy, Studio &studio){
     Customer *customer;
@@ -33,8 +35,10 @@ static Customer* builsCustomer(std::string name, std::string strategy, Studio &s
     }
     studio.incrementCId();
     return customer;
+
     
-}  
+// }  
+
 
 static BaseAction* buildAction(string input, Studio &studio){
     std::size_t startIndex = 0;
@@ -79,9 +83,12 @@ static BaseAction* buildAction(string input, Studio &studio){
     }else if(actionType.compare("backup") == 0){
         
     }else if(actionType.compare("restore") == 0){
+
         
-    }
-    return action;
+//     }else if(actionType.comper("restore") == 0){
+        
+//     }
+//     return action;
 
 
     /*
@@ -95,8 +102,8 @@ static BaseAction* buildAction(string input, Studio &studio){
     then use the addCustomer method of trainer
     after we built all the customers
     we want to send a refence of the customerList in the trainer to the action
-    */
-}  
+//     */
+// }  
 int main(int argc, char** argv){
     if(argc!=2){
         std::cout << "usage: studio <config_path>" << std::endl;
