@@ -19,7 +19,7 @@ static std::string getWorld(std::size_t* startIndex, char sep, const std::string
     std::string output = input.substr(*startIndex, len);
     *startIndex = endIndex + 1;
 
-// }
+}
 
 
 static Customer* builsCustomer(std::string name, std::string strategy, Studio &studio){
@@ -33,11 +33,11 @@ static Customer* builsCustomer(std::string name, std::string strategy, Studio &s
     }else if(strategy.compare("fbd") == 0){ //Full Body Customer
         customer = new FullBodyCustomer(name,studio.getCustomerId());
     }
-    studio.incrementCId();
+    studio.incCustonerId();
     return customer;
 
     
-// }  
+}  
 
 
 static BaseAction* buildAction(string input, Studio &studio){
@@ -67,28 +67,36 @@ static BaseAction* buildAction(string input, Studio &studio){
         action = new Order(trainerId);
 
     }else if(actionType.compare("move") == 0){
-        //
-        //
-        //
+        int srcTrainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int dstTrainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int customerId = std::stoi(getWorld(&startIndex , ' ', input));
+        action = new MoveCustomer(srcTrainerId, dstTrainerId, customerId);
+
     }else if(actionType.compare("close") == 0){
+        int trainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        action = new Close(trainerId);
         
     }else if(actionType.compare("closeall") == 0){
+        action = new CloseAll();
         
     }else if(actionType.compare("workout_option") == 0){
+        action = new PrintWorkoutOptions();
         
     }else if(actionType.compare("status") == 0){
+        int trainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        action = new PrintTrainerStatus(trainerId);
         
     }else if(actionType.compare("log") == 0){
+        action = new PrintActionsLog();
         
     }else if(actionType.compare("backup") == 0){
+        action = new BackupStudio();
         
     }else if(actionType.compare("restore") == 0){
+        action = new RestoreStudio();
 
-        
-//     }else if(actionType.comper("restore") == 0){
-        
-//     }
-//     return action;
+    }
+    return action;
 
 
     /*
@@ -103,7 +111,7 @@ static BaseAction* buildAction(string input, Studio &studio){
     after we built all the customers
     we want to send a refence of the customerList in the trainer to the action
 //     */
-// }  
+}  
 int main(int argc, char** argv){
     if(argc!=2){
         std::cout << "usage: studio <config_path>" << std::endl;

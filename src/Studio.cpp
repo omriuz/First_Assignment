@@ -84,6 +84,13 @@ Trainer* Studio::getTrainer(int tid){
     //built upon the face that a trainer id is his order in the vecotr
     return trainers[tid];
 };
+int Studio::getCustomerId(){
+    return customerId;
+};
+void Studio::incCustonerId(){
+    this->customerId++;
+};
+
 // const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
 // std::vector<Workout>& getWorkoutOptions();
 std::vector<Workout>& Studio::getWorkoutOptions(){
