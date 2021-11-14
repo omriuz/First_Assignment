@@ -8,6 +8,10 @@ int Trainer :: getCapacity() const{
 };
 void Trainer::addCustomer(Customer* customer){
     customersList.push_back(customer);
+    //i think we need to update the order list but im not sure
+    // how were gonna do that
+    //because we need a ref to studio to get the workout options
+    // this->order(customer->getId(),customer->order(Workout_options),Workout_options);
 };
 void Trainer::removeCustomer(int id){
     bool not_earsed = true;
@@ -19,6 +23,8 @@ void Trainer::removeCustomer(int id){
     }
     if(!not_earsed){
         std::cout<< " customer not found"<<endl;}
+    // i think we need to delete this customer orders from the orders list
+    // but i'm waiting until we solve the problem in the add customer method
 };
 Customer* Trainer::getCustomer(int id){
     Customer* c;
@@ -48,7 +54,7 @@ void Trainer::closeTrainer(){
     open = false;
 };
 int Trainer::getSalary(){
-    //need to add salary
+    //need to compute salary
 };
 bool Trainer::isOpen(){
     return open;

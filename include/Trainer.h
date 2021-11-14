@@ -8,7 +8,7 @@
 typedef std::pair<int, Workout> OrderPair;
 /*
 in the getSalary:
-we need to sum the orderList
+we need to sum workouts in the orderList
 */
 class Trainer{
 public:
