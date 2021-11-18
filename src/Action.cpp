@@ -25,6 +25,7 @@ std::string BaseAction::getErrorMsg() const{
 // class:openTrainer
 
 OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList):trainerId(id),customers(customersList){
+        //TODO: we need to decide if to deep copy the customers or not
         BaseAction::error("Workout session does not exist or is already open.");
         // we need to make sure if the customers can be init in the init list?
         // for(Customer* cus_1 : customersList){
@@ -38,9 +39,11 @@ void OpenTrainer::act( Studio& studio){
         std::cout<<BaseAction::getErrorMsg()<<endl;
     else {
         t->openTrainer();
-        for(Customer* c : customers){
-            t->addCustomer(c);
-        }
+        int counter = 0,length = customers.size(),capacity = t->getCapacity();
+         for (size_t i = 0; i < capacity; i++)
+         {
+             t->addCustomer(customers[i]);
+         }
     }
     //need to delete pointer??
     delete t;
@@ -64,7 +67,7 @@ Order::Order(int id):trainerId(id){
 };
 void Order::act(Studio &studio){
     Trainer* t = studio.getTrainer(trainerId);
-    //checking for error:
+    //checking for error: null or nullptr???
     if(t==nullptr)
         std::cout<< BaseAction::getErrorMsg()<<endl;
     else{
@@ -77,7 +80,8 @@ void Order::act(Studio &studio){
         std::vector<OrderPair>& orders = t->getOrders();
         //printing the orders:
         for(OrderPair order : orders){
-            std::cout<< t->getCustomer(order.first)->getName() + "Is Doing" + order.second.getName()<<endl;
+            if(order.first != -1)
+                std::cout<< t->getCustomer(order.first)->getName() + "Is Doing" + order.second.getName()<<endl;
         }
     }
     delete t;
@@ -117,13 +121,31 @@ MoveCustomer::MoveCustomer(int src, int dst, int customerId):srcTrainer(src),dst
     BaseAction::error("Cannot move customer");
     }
 void MoveCustomer::act(Studio &Studio){
-    //check if 1.src or dst dont exist or closed, 2.customer don't belong to src tranier
+    bool valid = true;
+    //check if 1.src or dst dont exist or closed,
+    //2.customer don't belong to src tranier
     // 3.dst trainer is full
-
+    Trainer* dst = Studio.getTrainer(srcTrainer);
+    Trainer* src = Studio.getTrainer(dstTrainer);
+    if(dst==NULL || !dst->isOpen() || src==NULL || !src->isOpen()||!src->isCustomerOfTrainer(id)
+    ||dst->isFull())
+        valid = false;
+    if(!valid)
+        std::cout<< BaseAction::getErrorMsg()<<endl;
+    else{
+    Customer* customer = src->getCustomer(id);
     //add the customer to the dst trainer
-
+    dst->addCustomer(customer);
+    vector<Workout>& workout_options=Studio.getWorkoutOptions();
+    vector<int> workouts_ids = customer->order(workout_options);
+    dst->order(id,workouts_ids,workout_options);
     //remove the customer from the src trainer
-
+    src->removeCustomer(id);
     //check if the src trainer is empty
+    if(src->isEmpty())
+        src->closeTrainer();
+    }
+
 };
+//keeping implentation for the actions log
 std::string MoveCustomer::toString() const{};

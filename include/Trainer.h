@@ -24,7 +24,12 @@ public:
     void closeTrainer();
     int getSalary();
     bool isOpen();
+    bool isCustomerOfTrainer(int customerId);
+    bool isFull();
+    bool isEmpty();
+    void computeSalary();
 private:
+    int salary;
     int capacity;
     bool open;
     std::vector<Customer*> customersList;
