@@ -1,6 +1,5 @@
 {
     "files.associations": {
-        "iostream": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -31,6 +30,7 @@
         "fstream": "cpp",
         "initializer_list": "cpp",
         "iosfwd": "cpp",
+        "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
         "new": "cpp",
@@ -45,7 +45,12 @@
             "cwd": "/home/spl211/First_assignment/bin",
             "binaryPath": "/home/spl211/First_assignment/bin/run",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/home/spl211/SPL/First_Assignment/First_Assignment/bin",
+            "binaryPath": "/home/spl211/SPL/First_Assignment/First_Assignment/bin/run",
+            "binaryArgs": []
         }
     ],
-    "C_Cpp.errorSquiggles": "Disabled"
+ //   "C_Cpp.errorSquiggles": "Disabled"
 }

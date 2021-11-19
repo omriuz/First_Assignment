@@ -13,11 +13,22 @@ using namespace std;
 Studio* backup = nullptr;
 
 
-static std::string getWorld(std::size_t* startIndex, char sep, const std::string input){
+static std::string getWord(std::string &input, char sep=' '){
+    //std::cout << "get world \n";
+    std::string word;
     std::size_t endIndex = input.find_first_of(sep);
-    std::size_t len = endIndex - *startIndex + 1;
-    std::string output = input.substr(*startIndex, len);
-    *startIndex = endIndex + 1;
+    if(endIndex == std::string::npos){
+    word = input;
+    std::size_t endIndex = input.length();
+    input = "";
+
+    }else{
+    word = input.substr(0, endIndex);
+    input = input.substr(endIndex+1);
+    }
+   // *startIndex = endIndex + 1;
+    //std::cout << "\nget word input :"  <<input <<"\n";
+    return word;
 
 }
 
@@ -34,46 +45,63 @@ static Customer* builsCustomer(std::string name, std::string strategy, Studio &s
         customer = new FullBodyCustomer(name,studio.getCustomerId());
     }
     studio.incCustonerId();
+            //  std::cout << "\nid: "<< customer->getId();
+            //  std::cout << "\nname: "<< customer->getName();
     return customer;
 
     
 }  
 
 
-static BaseAction* buildAction(string input, Studio &studio){
+static BaseAction* buildAction(std::string input, Studio &studio){
     std::size_t startIndex = 0;
     BaseAction *action;
-    std::string actionType = getWorld(&startIndex, ' ', input);
+    std::string stop;
+    std::string actionType = getWord(input);
+
+   // std::cout << actionType;
+
+
     if(actionType.compare("open") == 0){
         // <traner Id> <customer1_name>,<customer1_strategy> <customer2_name>,<customer2_strategy>
-        int trainerId = std::stoi(getWorld(&startIndex,' ', input));
+        int trainerId = std::stoi(getWord(input));
+
+        // std::cout << "\n trainer ID = " << trainerId;
+
         Customer *newCostumer;
-        // std::vector<Customer*> customersList = new vector<Customer*>();
+        std::vector<Customer*> *customersList = new vector<Customer*>();
         while(startIndex != input.length()){
-            std::string name = getWorld(&startIndex, ',', input);
-            std::string strategy = getWorld(&startIndex, ' ', input);
+            std::string name = getWord(input, ',');
+            std::string strategy = getWord(input);
+   
             // need to figure out how is deleting customers.
             newCostumer = builsCustomer(name, strategy, studio);
-            // customerList.push_back(&newCostumer);
+
+            // std::vector<int> workout_orders = newCostumer->order(studio.getWorkoutOptions());
+            // std::cout << newCostumer->getName() << " orders:\n";
+            // for(int i : workout_orders){
+            //     std::cout << i << "\n";
+            // }
+            customersList->push_back(newCostumer);
+
             // set the trainer vector of customers
-            studio.getTrainer(trainerId)->addCustomer(newCostumer);
         }
-              
-        // OpenTrainer(int id, std::vector<Customer *> &customersList);
-        action = new OpenTrainer(trainerId, studio.getTrainer(trainerId)->getCustomers());  
+
+        std::getline(std::cin, stop);
+        action = new OpenTrainer(trainerId, *customersList);  
 
     }else if(actionType.compare("order") == 0){
-        int trainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int trainerId = std::stoi(getWord(input));
         action = new Order(trainerId);
 
     }else if(actionType.compare("move") == 0){
-        int srcTrainerId = std::stoi(getWorld(&startIndex , ' ', input));
-        int dstTrainerId = std::stoi(getWorld(&startIndex , ' ', input));
-        int customerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int srcTrainerId = std::stoi(getWord(input));
+        int dstTrainerId = std::stoi(getWord(input));
+        int customerId = std::stoi(getWord(input));
         action = new MoveCustomer(srcTrainerId, dstTrainerId, customerId);
 
     }else if(actionType.compare("close") == 0){
-        int trainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int trainerId = std::stoi(getWord(input));
         action = new Close(trainerId);
         
     }else if(actionType.compare("closeall") == 0){
@@ -83,7 +111,7 @@ static BaseAction* buildAction(string input, Studio &studio){
         action = new PrintWorkoutOptions();
         
     }else if(actionType.compare("status") == 0){
-        int trainerId = std::stoi(getWorld(&startIndex , ' ', input));
+        int trainerId = std::stoi(getWord(input));
         action = new PrintTrainerStatus(trainerId);
         
     }else if(actionType.compare("log") == 0){
@@ -123,8 +151,8 @@ int main(int argc, char** argv){
     bool run = true;
     while(run){
         std::string input;
-        std::cout << "please enter the requested action";
-        std::cin >> input;
+        std::cout << "please enter the requested action: "<< std::endl;
+        std::getline(std::cin, input);
         buildAction(input,studio);
     }
     if(backup!=nullptr){

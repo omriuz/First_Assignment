@@ -5,7 +5,7 @@
 //we need to build the default constructor
 Studio :: Studio(){};
 
-Studio :: Studio(const std::string &configFilePath):open(true){
+Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     ifstream my_config_file(configFilePath);
     int num_of_trainers;
     vector<int> trainers_capacity;

@@ -36,10 +36,10 @@ void OpenTrainer::act( Studio& studio){
     if (t==NULL||t->isOpen())
         std::cout<<BaseAction::getErrorMsg()<<endl;
     else {
-        t->openTrainer();
-        for(Customer* c : customers){
-            t->addCustomer(c);
-        }
+        // t->openTrainer();
+        // for(Customer* c : this.customers){
+        //     t->addCustomer(c);
+        // }
 
     }
     //need to delete pointer??

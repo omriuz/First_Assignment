@@ -21,12 +21,16 @@ public:
     std::vector<Workout>& getWorkoutOptions();
     void tokenize(string &str, char delim, vector<int> &out);
     void tokenize(string &str, char delim, vector<string> &out);
+    void incCustonerId();
+    int getCustomerId();
 
 private:
     bool open;
+    int customerId;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;
     std::vector<BaseAction*> actionsLog;
+
 };
 
 #endif
