@@ -63,16 +63,20 @@ HeavyMuscleCustomer::HeavyMuscleCustomer(std::string c_name, int c_id):Customer(
 
 std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
-    std::vector<Workout> anaerobic_workouts; //need to be deleted
+    std::vector<std::pair<int,int>> anaerobic_pairs; //need to be deleted
     for(Workout w : workout_options){
         if(w.getType() == 0){
-            anaerobic_workouts.push_back(w);
+            anaerobic_pairs.push_back(std::make_pair(w.getId(),w.getPrice()));
         }
     }
-    // std::sort(anaerobic_workouts.begin(),anaerobic_workouts.end());
+    std::sort(anaerobic_pairs.begin(),anaerobic_pairs.end(),
+    [](const std::pair<int,int> left, const std::pair<int,int> right){
 
-    for(Workout w : anaerobic_workouts){
-        workout_order.push_back(w.getId());
+        return left.second < right.second;
+    });
+
+    for(std::pair<int,int> p : anaerobic_pairs){
+        workout_order.push_back(p.first);
     }
     return workout_order;
 }
@@ -89,28 +93,43 @@ FullBodyCustomer::FullBodyCustomer(std::string c_name, int c_id):Customer(c_name
 
 std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
-    std::vector<Workout> cardio_workouts; //need to be deleted
-    std::vector<Workout> mixed_workouts; //need to be deleted
-    std::vector<Workout> anaerobic_workouts; //need to be deleted
+    std::vector<std::pair<int,int>> cardio_pairs; //need to be deleted
+    std::vector<std::pair<int,int>> mixed_pairs; //need to be deleted
+    std::vector<std::pair<int,int>> anaerobic_pairs; //need to be deleted
+
+
     for(Workout w : workout_options){
         switch (w.getType()){
             case 0:
-                anaerobic_workouts.push_back(w);
+                anaerobic_pairs.push_back(std::make_pair(w.getId(),w.getPrice()));
                 break;
             case 1:
-                mixed_workouts.push_back(w);
+                mixed_pairs.push_back(std::make_pair(w.getId(),w.getPrice()));
                 break;
             case 2:
-                cardio_workouts.push_back(w);
+                cardio_pairs.push_back(std::make_pair(w.getId(),w.getPrice()));
         }   
     }
-    // std::sort(cardio_workouts.begin(),cardio_workouts.end());
-    // std::sort(mixed_workouts.begin(),mixed_workouts.end());
-    // std::sort(anaerobic_workouts.begin(),anaerobic_workouts.end());
 
-    workout_order.push_back(cardio_workouts.front().getId());
-    workout_order.push_back(mixed_workouts.back().getId());
-    workout_order.push_back(anaerobic_workouts.front().getId());
+        std::sort(anaerobic_pairs.begin(),anaerobic_pairs.end(),
+    [](const std::pair<int,int> left, const std::pair<int,int> right){
+
+        return left.second < right.second;
+    });
+            std::sort(mixed_pairs.begin(),mixed_pairs.end(),
+    [](const std::pair<int,int> left, const std::pair<int,int> right){
+
+        return left.second < right.second;
+    });
+            std::sort(cardio_pairs.begin(),cardio_pairs.end(),
+    [](const std::pair<int,int> left, const std::pair<int,int> right){
+
+        return left.second < right.second;
+    });
+
+    workout_order.push_back(cardio_pairs.front().first);
+    workout_order.push_back(mixed_pairs.back().first);
+    workout_order.push_back(anaerobic_pairs.front().first);
     
     return workout_order;
 }
