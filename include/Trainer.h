@@ -8,7 +8,7 @@
 typedef std::pair<int, Workout> OrderPair;
 /*
 in the getSalary:
-we need to sum the orderList
+we need to sum workouts in the orderList
 */
 class Trainer{
 public:
@@ -24,7 +24,12 @@ public:
     void closeTrainer();
     int getSalary();
     bool isOpen();
+    bool isCustomerOfTrainer(int customerId);
+    bool isFull();
+    bool isEmpty();
+    void updateSalary();
 private:
+    int salary;
     int capacity;
     bool open;
     std::vector<Customer*> customersList;
