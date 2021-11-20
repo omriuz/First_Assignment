@@ -105,17 +105,6 @@ we need to implement those methods in trainer correctly according to this
 after that we need to check all the bad cases that might have happend
 like an empty trainer
 we need to remember to transfer the order in the order
-
-class MoveCustomer : public BaseAction {
-public:
-    MoveCustomer(int src, int dst, int customerId);
-    void act(Studio &studio);
-    std::string toString() const;
-private:
-    const int srcTrainer;
-    const int dstTrainer;
-    const int id;
-};
 */
 MoveCustomer::MoveCustomer(int src, int dst, int customerId):srcTrainer(src),dstTrainer(dst),id(customerId){
     BaseAction::error("Cannot move customer");
@@ -136,6 +125,7 @@ void MoveCustomer::act(Studio &Studio){
     Customer* customer = src->getCustomer(id);
     //add the customer to the dst trainer
     dst->addCustomer(customer);
+    //add the customer orders to the new trainer
     vector<Workout>& workout_options=Studio.getWorkoutOptions();
     vector<int> workouts_ids = customer->order(workout_options);
     dst->order(id,workouts_ids,workout_options);
@@ -149,3 +139,101 @@ void MoveCustomer::act(Studio &Studio){
 };
 //keeping implentation for the actions log
 std::string MoveCustomer::toString() const{};
+
+/*
+
+class close:
+
+in the constructor=
+usual
+in the act:
+salary - uses the getSalary method of the trainer(which sums the vector)
+
+class Close : public BaseAction {
+public:
+    Close(int id);
+    void act(Studio &studio);
+    std::string toString() const;
+private:
+    const int trainerId;
+};
+*/
+Close::Close(int id):trainerId(id){
+    BaseAction::error("Trainer does not exist or is not open");
+};
+void Close::act(Studio &studio){
+    Trainer* trainer = studio.getTrainer(trainerId);
+    //TODO: check if the trainer dosent exist or isnt open
+    if(trainer == nullptr || !trainer->isOpen())
+        std::cout<<getErrorMsg()<<endl;
+    else{
+    trainer->closeTrainer();
+    int salary = trainer->getSalary();
+    std::cout<< "Trainer "<< trainerId<<" closed. Salary "<< salary<<"NIS"<<endl;
+    }
+
+}
+//TODO
+std::string Close::toString()const{};
+
+
+CloseAll::CloseAll(){};
+
+void CloseAll::act(Studio &studio){
+    studio.close();
+};
+//TODO
+std::string CloseAll::toString() const{};
+
+
+/*
+class PrintWorkoutOptions : public BaseAction {
+public:
+    PrintWorkoutOptions();
+    void act(Studio &studio);
+    std::string toString() const;
+private:
+};
+*/
+PrintWorkoutOptions::PrintWorkoutOptions(){};
+void PrintWorkoutOptions::act(Studio &studio){
+    vector<Workout> workout_options = studio.getWorkoutOptions();
+    for(Workout workout : workout_options){
+        std::cout<<workout.getName()<<", "<<workout.getType()<<", "<<workout.getPrice()<<endl;
+    }
+}
+//TODO:
+std::string PrintWorkoutOptions::toString() const{};
+
+
+/*
+class PrintTrainerStatus : public BaseAction {
+public:
+    PrintTrainerStatus(int id);
+    void act(Studio &studio);
+    std::string toString() const;
+private:
+    const int trainerId;
+};
+*/
+
+PrintTrainerStatus::PrintTrainerStatus(int id):trainerId(id){
+    // TODO: do we need to add an error? its not mentioned in the question specificly
+};
+void PrintTrainerStatus::act(Studio &studio){
+    Trainer *trainer =studio.getTrainer(trainerId);
+    //TODO : print error if needed
+    if(trainer != nullptr && trainer->isOpen()){
+        //TODO: how do we print a trainer status??
+        //std::cout<< "Trainer "<<trainer.get
+        vector<Customer*> customers = trainer->getCustomers();
+        for(Customer* c: customers){
+            //TODO: print customer
+        }
+        vector<OrderPair>& orders = trainer->getOrders();
+        for(OrderPair order : orders){
+            //TODO: print order
+        }
+    }
+}
+

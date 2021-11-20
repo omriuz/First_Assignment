@@ -27,7 +27,7 @@ public:
     bool isCustomerOfTrainer(int customerId);
     bool isFull();
     bool isEmpty();
-    void computeSalary();
+    void updateSalary();
 private:
     int salary;
     int capacity;

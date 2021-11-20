@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 
+typedef std::pair<int, int> trainerPair;
 //we need to build the default constructor
 Studio :: Studio(){};
 
@@ -85,6 +86,21 @@ Trainer* Studio::getTrainer(int tid){
     //built upon the face that a trainer id is his order in the vecotr
     return trainers[tid];
 };
+void Studio::close(){
+    int length = getNumOfTrainers();
+    vector <trainerPair> closed_trainers;
+    for (size_t i = 0; i < length; i++)
+    {
+        if(trainers[i]->isOpen()){
+            trainers[i]->closeTrainer();
+            trainerPair p(i,trainers[i]->getSalary());
+            closed_trainers.push_back(p);
+}}
+    for(trainerPair pair : closed_trainers){
+        std::cout<<"Trainer "<< pair.first<<" closed. Salary "<<pair.second<<"NIS"<<endl;
+    }
+    open = false;
+}
 // const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
 // std::vector<Workout>& getWorkoutOptions();
 std::vector<Workout>& Studio::getWorkoutOptions(){

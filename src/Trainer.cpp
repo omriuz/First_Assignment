@@ -68,9 +68,11 @@ void Trainer::openTrainer(){
 };
 void Trainer::closeTrainer(){
     open = false;
+    updateSalary();
+    //check in forum if we want to print the salary to the screen here or in the action
 };
 int Trainer::getSalary(){
-    //need to compute salary
+    return salary;
 };
 bool Trainer::isOpen(){
 
@@ -89,4 +91,11 @@ bool Trainer::isFull(){
 bool Trainer::isEmpty(){
     return customersList.size()==0;
 }
-void Trainer::computeSalary(){};
+void Trainer::updateSalary(){
+    int sum_of_orders = 0;
+    for(OrderPair pair : orderList){
+        if(pair.first != -1)
+            sum_of_orders = sum_of_orders + pair.second.getPrice();
+    }
+    salary = salary + sum_of_orders;
+}
