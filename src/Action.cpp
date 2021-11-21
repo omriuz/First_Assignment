@@ -35,7 +35,7 @@ OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList):trainer
 };
 void OpenTrainer::act( Studio& studio){
     Trainer* t = studio.getTrainer(trainerId);
-    if (t==NULL||t->isOpen())
+    if (t==nullptr||t->isOpen())
         std::cout<<BaseAction::getErrorMsg()<<endl;
     else {
         t->openTrainer();
@@ -46,7 +46,7 @@ void OpenTrainer::act( Studio& studio){
          }
     }
     //need to delete pointer??
-    delete t;
+    // delete t;
 };
 std::string OpenTrainer::toString() const{};
 
