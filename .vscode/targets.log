@@ -1,131 +1,62 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Fri Nov 12 19:22:31 2021
- 
+# Make data base, printed on Mon Nov 22 20:44:40 2021
 
 # Variables
- 
 
- 
 # 'override' directive
- 
 GNUMAKEFLAGS := 
- 
 # automatic
- 
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
- 
 ?F = $(notdir $?)
- 
 # environment
- 
 DESKTOP_SESSION = ubuntu
- 
 # default
- 
 .SHELLFLAGS := -c
- 
 # environment
- 
-SNAP_COMMON = /var/snap/code/common
- 
-# environment
- 
 XDG_SESSION_TYPE = x11
- 
 # environment
- 
 VSCODE_LOG_NATIVE = false
- 
 # automatic
- 
 ?D = $(patsubst %/,%,$(dir $?))
- 
-# automatic
- 
-@D = $(patsubst %/,%,$(dir $@))
- 
 # environment
- 
-XAUTHORITY = /run/user/1000/gdm/Xauthority
- 
-# environment
- 
-GDMSESSION = ubuntu
- 
-# environment
- 
-XMODIFIERS = @im=ibus
- 
-# makefile
- 
-CURDIR := /home/spl211/First_assignment
- 
-# makefile
- 
-SHELL = /bin/sh
- 
-# environment
- 
-SNAP_DATA = /var/snap/code/81
- 
-# environment
- 
-VTE_VERSION = 5201
- 
-# environment
- 
-VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
- 
-# environment
- 
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
- 
-# environment
- 
-SNAP_INSTANCE_NAME = code
- 
-# environment
- 
-SNAP_ARCH = amd64
- 
-# makefile (from 'makefile', line 1)
- 
-MAKEFILE_LIST :=  makefile
- 
-# automatic
- 
-@F = $(notdir $@)
- 
-# environment
- 
 IM_CONFIG_PHASE = 2
- 
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
 # environment
- 
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/spl211/SPL/First_Assignment/First_Assignment
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/share/code/code
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# automatic
+@F = $(notdir $@)
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# environment
 USERNAME = spl211
- 
 # environment
- 
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
- 
 # environment
- 
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
@@ -134,9 +65,7 @@ CLUTTER_IM_MODULE = xim
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/spl211/First_assignment
-# environment
-GSETTINGS_SCHEMA_DIR = /snap/code/81/usr/share/glib-2.0/schemas
+VSCODE_CWD = /home/spl211
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -144,35 +73,27 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1183,unix/spl211:/tmp/.ICE-unix/1183
+SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1315,unix/spl211:/tmp/.ICE-unix/1315
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-GDK_PIXBUF_MODULE_FILE = /home/spl211/snap/code/common/.cache/gdk-pixbuf-loaders.cache
-# environment
 TEXTDOMAIN = im-config
-# environment
-SNAP = /snap/code/81
-# environment
-SNAP_VERSION = 3a6960b9
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
 # environment
-DISABLE_WAYLAND = 1
-# environment
-VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=e711df3d-bc6f-467f-a440-d8d64bc13441&iid=e711df3d-bc6f-467f-a440-d8d64bc13441&sid=e711df3d-bc6f-467f-a440-d8d64bc13441","uploadToServer":true}
-# environment
-GDK_PIXBUF_MODULEDIR = /snap/code/81/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=358c026d-dcad-4209-83ce-93d874fcddfd&iid=358c026d-dcad-4209-83ce-93d874fcddfd&sid=358c026d-dcad-4209-83ce-93d874fcddfd","uploadToServer":true}
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = 
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2066
 # automatic
 %F = $(notdir $%)
 # environment
@@ -182,13 +103,11 @@ GTK_IM_MODULE = ibus
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-SNAP_INSTANCE_KEY = 
-# environment
-PWD = /home/spl211/First_assignment
+PWD = /home/spl211/SPL/First_Assignment/First_Assignment
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1316
+SSH_AGENT_PID = 1444
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -200,21 +119,11 @@ HOME = /home/spl211
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CLI = 1
-# environment
-VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/3a6960b964327f0e3882ce18fcebd07ed191b316
+VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/f4af3cbf5a99787542e2a30fe1fd37cd644cc31f
 # environment
 LOGNAME = spl211
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# environment
-SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
-# environment
-SNAP_CONTEXT = l0LAXzAcedqGeiEPMxbzUsK7u20cxjkn5E8PHAGKGSDu_gZFPmCz
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
-SNAP_USER_COMMON = /home/spl211/snap/code/common
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -227,10 +136,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 XDG_VTNR = 1
 # environment
 MAKELEVEL := 0
-# environment
-SNAP_REAL_HOME = /home/spl211
-# environment
-COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -238,19 +143,15 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/spl211/snap/code/81
-# environment
 SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9b5b0a21-c963-42cf-9bd8-ebb5f6215865.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c64af6d4-f8d0-4a77-ab2a-0f20cb4a5842.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
 USER = spl211
-# environment
-SNAP_REVISION = 81
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -259,14 +160,12 @@ XDG_CURRENT_DESKTOP = Unity
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
-# environment
-OLDPWD = /home/spl211
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.1-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -287,30 +186,20 @@ QT_ACCESSIBILITY = 1
 TEXTDOMAINDIR = /usr/share/locale/
 # default
 MAKEFILES := 
-# environment
-SNAP_COOKIE = l0LAXzAcedqGeiEPMxbzUsK7u20cxjkn5E8PHAGKGSDu_gZFPmCz
 # automatic
 <F = $(notdir $<)
 # environment
 ELECTRON_RUN_AS_NODE = 1
-# environment
-SNAP_NAME = code
 # environment
 LC_ALL = C
 # environment
 QT4_IM_MODULE = xim
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
-# environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b9c64963_10a9_4632_b921_2af41480f038
 # automatic
 ^F = $(notdir $^)
-# environment
-GNOME_TERMINAL_SERVICE = :1.486
 # default
 SUFFIXES := 
-# environment
-SNAP_REEXEC = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -324,11 +213,9 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
-# environment
-VSCODE_PID = 7644
+VSCODE_PID = 2066
 # variable set hash-table stats:
-# Load=127/1024=12%, Rehash=0, Collisions=18/155=12%
+# Load=102/1024=10%, Rehash=0, Collisions=15/130=12%
 
 # Pattern-specific Variable Values
 
@@ -336,7 +223,7 @@ VSCODE_PID = 7644
 
 # Directories
 
-# . (device 2049, inode 922720): 10 files, no impossibilities.
+# . (device 2049, inode 1081350): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -348,7 +235,7 @@ VSCODE_PID = 7644
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-12 19:12:29.321800025
+#  Last modified 2021-11-20 16:21:23.947110891
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 24):
@@ -366,20 +253,20 @@ all: run
 # Not a target:
 src/Studio.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 18:25:03.265800025
+#  Last modified 2021-11-19 16:49:18.985988898
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Action.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 19:20:06.117800025
+#  Last modified 2021-11-20 18:09:18.461689027
 #  File has been updated.
 #  Successfully updated.
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-12 19:12:29.029800025
+#  Last modified 2021-11-20 16:21:22.783110891
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 18):
@@ -388,10 +275,11 @@ bin/Studio.o: src/Studio.cpp
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2021-11-20 16:21:24.563110891
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
+ 
 # @ := bin/Action.o
 # automatic
 # % := 
@@ -402,9 +290,7 @@ bin/Action.o: src/Action.cpp
 # automatic
 # | := 
 # automatic
- 
 # < := src/Action.cpp
- 
 # automatic
 # ^ := src/Action.cpp
 # automatic
@@ -423,7 +309,7 @@ bin/Action.o: src/Action.cpp
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 19:21:02.205800025
+#  Last modified 2021-11-13 14:40:22.185695338
 #  File has been updated.
 #  Successfully updated.
 
@@ -436,14 +322,14 @@ makefile:
 # Not a target:
 src/Workout.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-11 14:46:20.184843
+#  Last modified 2021-11-20 15:23:30.129526138
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Trainer.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 19:01:13.861800025
+#  Last modified 2021-11-13 14:40:22.20170334
 #  File has been updated.
 #  Successfully updated.
 
@@ -471,7 +357,7 @@ clean:
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-12 19:12:29.441800025
+#  Last modified 2021-11-20 16:21:24.143110891
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 30):
@@ -480,7 +366,7 @@ bin/Workout.o: src/Workout.cpp
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-12 19:12:29.309800025
+#  Last modified 2021-11-20 16:21:23.195110891
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 21):
@@ -489,13 +375,13 @@ bin/Trainer.o: src/Trainer.cpp
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 17:48:38.653800025
+#  Last modified 2021-11-20 11:31:47.305499001
 #  File has been updated.
 #  Successfully updated.
 
 bin/main.o: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-12 19:12:28.593800025
+#  Last modified 2021-11-20 16:21:22.091110891
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 15):
@@ -504,7 +390,7 @@ bin/main.o: src/main.cpp
 # Not a target:
 src/Customer.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-10 10:13:22.132
+#  Last modified 2021-11-20 11:41:15.049229002
 #  File has been updated.
 #  Successfully updated.
 
@@ -512,7 +398,6 @@ src/Customer.cpp:
 # Load=18/1024=2%, Rehash=0, Collisions=1/50=2%
 # VPATH Search Paths
 
- 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
@@ -523,4 +408,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Fri Nov 12 19:22:31 2021
+# Finished Make data base on Mon Nov 22 20:44:40 2021
+
+ 

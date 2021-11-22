@@ -3,18 +3,17 @@
 #include <algorithm>
 using namespace std;
 
-Customer::Customer(std::string c_name, int c_id):name(c_name),id(c_id){}
-
-//Customer::Customer(Customer customer):name(customer.getName),id(customer.getId){};
-
-std::string Customer::getName() const{return name;}
-
-int Customer::getId() const{return id;}
+Customer::Customer(std::string c_name, int c_id):name(c_name),id(c_id){};
+std::string Customer::getName() const{
+    return name;}
+int Customer::getId() const{
+    return id;};
 
 // _______________________SweatyCustomer______________________________
 
-SweatyCustomer::SweatyCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
-}
+//using the base class constructor
+SweatyCustomer::SweatyCustomer(std::string c_name, int c_id):Customer::Customer(c_name,c_id){
+};
 
 std::vector<int> SweatyCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
@@ -28,12 +27,17 @@ std::vector<int> SweatyCustomer:: order(const std::vector<Workout> &workout_opti
 }
 
 std::string SweatyCustomer::toString() const{
-    std::string s = "___Sweaty Customer___";
+    std::string s = getName() + ",swt";
     return s;
+}
+
+SweatyCustomer* SweatyCustomer::clone(){
+    return new SweatyCustomer(this->getName(), this->getId());
 }
 
 // _______________________CheapCustomer______________________________
 
+//TODO: theres a bug in cheap customer. it dosent show the workout name in the output
 CheapCustomer::CheapCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
 
@@ -52,8 +56,12 @@ std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_optio
 }
 
 std::string CheapCustomer::toString() const{
-    std::string s = "___Cheap Customer___";
+    std::string s = getName() + ",chp";
     return s;
+}
+
+CheapCustomer* CheapCustomer::clone(){
+    return new CheapCustomer(this->getName(), this->getId());
 }
 
 // _______________________HeavyMuscleCustomer______________________________
@@ -82,8 +90,12 @@ std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout
 }
 
 std::string HeavyMuscleCustomer::toString() const{
-    std::string s = "___Heavy Muscle Customer___";
+    std::string s = getName() + ",mcl";
     return s;
+}
+
+HeavyMuscleCustomer* HeavyMuscleCustomer::clone(){
+    return new HeavyMuscleCustomer(this->getName(), this->getId());
 }
 
 // _______________________FullBodyCustomer______________________________
@@ -135,6 +147,10 @@ std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_op
 }
 
 std::string FullBodyCustomer:: toString() const{
-    std::string s = "___FullBodyCustomer___";
+    std::string s = getName() + ",fbd";
     return s;
+}
+
+FullBodyCustomer* FullBodyCustomer::clone(){
+    return new FullBodyCustomer(this->getName(), this->getId());
 }

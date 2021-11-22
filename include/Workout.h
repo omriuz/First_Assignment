@@ -16,18 +16,13 @@ public:
     std::string getName() const;
     int getPrice() const;
     WorkoutType getType() const;
-    // 
-    // Workout& operator=(Workout &other);
-
+    string get_type_name() const;
 private:
 	const int id;
     const std::string name;
     const int price;
     const WorkoutType type;
-
 };
-bool operator<(const Workout &first,const Workout &second);
-bool operator>(const Workout &first,const Workout &second);
-// bool operator>(const Workout &other) const;
+
 
 #endif
