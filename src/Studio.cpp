@@ -3,10 +3,9 @@
 #include <sstream>
 
 typedef std::pair<int, int> trainerPair;
-//we need to build the default constructor
+//constructors:
 Studio :: Studio(){};
-
-Studio :: Studio(const std::string &configFilePath):open(true){
+Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     ifstream my_config_file(configFilePath);
     int num_of_trainers;
     vector<int> trainers_capacity;
@@ -30,7 +29,7 @@ Studio :: Studio(const std::string &configFilePath):open(true){
     //turn the rest of text into workouts_data
     vector<vector<string>> workouts_data(text.size()-2);
     for(int i = 2; i<text.size();i++){
-        tokenize(text[i], ', ', workouts_data[i-2]);
+        tokenize(text[i], ',', workouts_data[i-2]);
         ss.clear();
         ss<<workouts_data[i-2][2];
         int price;
@@ -47,7 +46,19 @@ Studio :: Studio(const std::string &configFilePath):open(true){
     }
     my_config_file.close();
 };
- void Studio::tokenize(string &str, char delim, vector<int> &out)
+//copy constructor:
+Studio :: Studio(const Studio &Other){
+    //TODO: we need to decide on the implentation according to backup
+}
+//destructor:
+Studio::~Studio(){
+    clear();
+}
+//move assignment operator:
+Studio &Studio::operator=(const Studio &other){
+    //TODO: fill the imp according to backup and restore
+};
+void Studio::tokenize(string &str, char delim, vector<int> &out)
 {
 	size_t start;
 	size_t end = 0;
@@ -70,7 +81,7 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 	while ((start = str.find_first_not_of(delim, end)) != string::npos)
 	{
 		end = str.find(delim, start);
-		out.push_back(str.substr(start, end - start-1));
+		out.push_back(str.substr(start, end - start));
 	}
 }
 void Studio::start(){
@@ -101,9 +112,35 @@ void Studio::close(){
     }
     open = false;
 }
-// const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
-// std::vector<Workout>& getWorkoutOptions();
+const std::vector<BaseAction*>& Studio::getActionsLog() const{
+    return actionsLog;
+} 
 std::vector<Workout>& Studio::getWorkoutOptions(){
     return workout_options;
 };
-
+int Studio::getCustomerId(){
+    return customerId;
+};
+void Studio::incCustomerId(){
+    this->customerId++;
+};
+void Studio::log_action(BaseAction *action){
+    actionsLog.push_back(action);
+};
+void Studio::clear(){
+    for(Trainer *t : trainers){
+        delete t;
+    }
+    //TODO: should we delete the workouts???
+    // for(Workout w : workout_options){
+    //     delete w;
+    // }
+    for(BaseAction *b : actionsLog){
+        delete b;
+    }
+    //TODO: it's okay to clear or should we turn pointers in to nullptr?
+    trainers.clear();
+    workout_options.clear();
+    actionsLog.clear();
+}
+//TODO : we might need to add copy constructor, copy assigment operator and rule of 5

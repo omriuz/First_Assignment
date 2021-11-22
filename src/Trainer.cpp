@@ -2,7 +2,29 @@
 #include <iostream>
 
 using namespace std;
+//constructor:
 Trainer :: Trainer (int t_capacity):salary(0),capacity(t_capacity),open(false){};
+//copy constructor:
+Trainer :: Trainer(const Trainer &other):salary(other.salary),capacity(other.capacity),open(other.open){
+    copy(other);
+}
+//copy assignment operator:
+Trainer&  Trainer::operator=(const Trainer &other){
+    if(this == &other)
+        return *this;
+    clear();
+    copy(other);
+    return *this;
+
+}
+//destructor:
+Trainer :: ~Trainer(){
+    clear();
+}
+//Move constructor:
+// TODO:???
+//Move Assignemnt:
+//???
 int Trainer :: getCapacity() const{
     return capacity;
 };
@@ -24,17 +46,20 @@ void Trainer::removeCustomer(int id){
             erased = true;
         }
     }
-    length = orderList.size();
-    erased = false;
-        for(int i = 0; i < length && !erased;i++){
-        if(orderList[i].first == id){
-            //erasing is impossible so were chaging the value of customer_id to -1 instead
-            orderList[i].first=-1;
-            erased = true;
+    if(erased){
+        length = orderList.size();
+        int sum_of_orders = 0;
+            for(int i = 0; i < length;i++){
+            if(orderList[i].first == id){
+                //erasing is impossible so were chaging the value of customer_id to -1 instead
+                orderList[i].first=-1;
+                sum_of_orders = sum_of_orders + orderList[i].second.getPrice();
+            }
         }
+        dec_salary(sum_of_orders);
     }
-    if(!erased){
-        std::cout<< " customer not found"<<endl;}
+   else
+        std::cout<< " customer not found"<<endl;
 };
 Customer* Trainer::getCustomer(int id){
     Customer* c;
@@ -46,9 +71,9 @@ Customer* Trainer::getCustomer(int id){
         }
     }
     if(!found){
-        delete c;
         std::cout<< "customer not found"<<endl;
     }
+    return c;
 };
 std::vector<Customer*>& Trainer::getCustomers(){
     return customersList;
@@ -57,19 +82,24 @@ std::vector<OrderPair>& Trainer::getOrders(){
     return orderList;
 };
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options){
+    int sum_of_orders = 0;
     for(int workout_id : workout_ids){
         //using the fact that workout_id is an index in workout_options
         OrderPair pair(customer_id,workout_options[workout_id]);
         orderList.push_back(pair);
+        sum_of_orders = sum_of_orders + pair.second.getPrice();
     }
+    inc_salary(sum_of_orders);
 };
 void Trainer::openTrainer(){
     open = true;
 };
 void Trainer::closeTrainer(){
+    for(Customer *customer : customersList){
+        delete customer;
+    }
+    customersList.clear();
     open = false;
-    updateSalary();
-    //check in forum if we want to print the salary to the screen here or in the action
 };
 int Trainer::getSalary(){
     return salary;
@@ -86,16 +116,31 @@ bool Trainer::isCustomerOfTrainer(int customerId){
     return false;
 }
 bool Trainer::isFull(){
-    return customersList.size()<getCapacity();
+    return (customersList.size()>=getCapacity());
 }
 bool Trainer::isEmpty(){
     return customersList.size()==0;
 }
-void Trainer::updateSalary(){
-    int sum_of_orders = 0;
-    for(OrderPair pair : orderList){
-        if(pair.first != -1)
-            sum_of_orders = sum_of_orders + pair.second.getPrice();
+void Trainer::dec_salary(int amount){
+    salary = salary - amount;
+}
+void Trainer::inc_salary(int amount){
+
+    salary = salary + amount;
+}
+void Trainer::copy(const Trainer &other){
+    // shallow copy customer list:
+    for(Customer *c : other.customersList){
+        Customer *customer = c;
+        customersList.push_back(customer);
     }
-    salary = salary + sum_of_orders;
+    //deep copy order list:
+    for(OrderPair pair : other.orderList){
+        OrderPair p(pair.first,pair.second);
+        this->orderList.push_back(p);
+    }
+}
+void Trainer::clear(){
+    customersList.clear();
+    orderList.clear();
 }

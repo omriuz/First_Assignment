@@ -13,3 +13,12 @@ int Workout::getPrice() const {
 WorkoutType Workout::getType() const{
     return type;
 }
+string Workout::get_type_name() const{
+        if(type == ANAEROBIC)
+            return "ANAEROBIC";
+        else if(type == MIXED)
+            return "MIXED";
+        else 
+            return "CARDIO";
+    }
+        

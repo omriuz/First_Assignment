@@ -12,7 +12,18 @@ we need to sum workouts in the orderList
 */
 class Trainer{
 public:
+    //constructor:
     Trainer(int t_capacity);
+    //copy constructor:
+    Trainer(const Trainer &other);
+    //copy assignment operator:
+    Trainer & operator=(const Trainer &other);
+    //destructor:
+    ~Trainer();
+    //move constructor:
+    Trainer(Trainer && other);
+    //move assignment:
+    Trainer& operator=(Trainer &&other);
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);
@@ -27,8 +38,12 @@ public:
     bool isCustomerOfTrainer(int customerId);
     bool isFull();
     bool isEmpty();
-    void updateSalary();
+    void dec_salary(int amount);
+    void inc_salary(int amount);
+
 private:
+    void copy(const Trainer &other);
+    void clear();
     int salary;
     int capacity;
     bool open;
