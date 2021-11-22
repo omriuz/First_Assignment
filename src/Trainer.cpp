@@ -2,7 +2,29 @@
 #include <iostream>
 
 using namespace std;
+//constructor:
 Trainer :: Trainer (int t_capacity):salary(0),capacity(t_capacity),open(false){};
+//copy constructor:
+Trainer :: Trainer(const Trainer &other):salary(other.salary),capacity(other.capacity),open(other.open){
+    copy(other);
+}
+//copy assignment operator:
+Trainer&  Trainer::operator=(const Trainer &other){
+    if(this == &other)
+        return *this;
+    clear();
+    copy(other);
+    return *this;
+
+}
+//destructor:
+Trainer :: ~Trainer(){
+    clear();
+}
+//Move constructor:
+// TODO:???
+//Move Assignemnt:
+//???
 int Trainer :: getCapacity() const{
     return capacity;
 };
@@ -76,6 +98,7 @@ void Trainer::closeTrainer(){
     for(Customer *customer : customersList){
         delete customer;
     }
+    customersList.clear();
     open = false;
 };
 int Trainer::getSalary(){
@@ -102,5 +125,19 @@ void Trainer::dec_salary(int amount){
     salary = salary - amount;
 }
 void Trainer::inc_salary(int amount){
+
     salary = salary + amount;
+}
+void Trainer::copy(const Trainer &other)const{
+    //shallow copy customer list:
+    this->customersList(other.customersList);
+    //deep copy order list:
+    for(OrderPair pair : other.orderList){
+        OrderPair p(pair.first,pair.second);
+        this->orderList.push_back(p);
+    }
+}
+void Trainer::clear(){
+    customersList.clear();
+    orderList.clear();
 }

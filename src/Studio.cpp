@@ -3,7 +3,7 @@
 #include <sstream>
 
 typedef std::pair<int, int> trainerPair;
-//we need to build the default constructor
+//constructors:
 Studio :: Studio(){};
 Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     ifstream my_config_file(configFilePath);
@@ -46,7 +46,19 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     }
     my_config_file.close();
 };
- void Studio::tokenize(string &str, char delim, vector<int> &out)
+//copy constructor:
+Studio :: Studio(const Studio &Other){
+    //TODO: we need to decide on the implentation according to backup
+}
+//destructor:
+Studio::~Studio(){
+    clear();
+}
+//move assignment operator:
+Studio &Studio::operator=(const Studio &other){
+    //TODO: fill the imp according to backup and restore
+};
+void Studio::tokenize(string &str, char delim, vector<int> &out)
 {
 	size_t start;
 	size_t end = 0;
@@ -115,3 +127,20 @@ void Studio::incCustomerId(){
 void Studio::log_action(BaseAction *action){
     actionsLog.push_back(action);
 };
+void Studio::clear(){
+    for(Trainer *t : trainers){
+        delete t;
+    }
+    //TODO: should we delete the workouts???
+    // for(Workout w : workout_options){
+    //     delete w;
+    // }
+    for(BaseAction *b : actionsLog){
+        delete b;
+    }
+    //TODO: it's okay to clear or should we turn pointers in to nullptr?
+    trainers.clear();
+    workout_options.clear();
+    actionsLog.clear();
+}
+//TODO : we might need to add copy constructor, copy assigment operator and rule of 5

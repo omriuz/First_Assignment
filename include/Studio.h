@@ -11,9 +11,15 @@ using namespace std;
 
 class Studio{		
 public:
-
+    //constructors:
 	Studio();
     Studio(const std::string &configFilePath);
+    Studio(const Studio &Other);
+    //copy assignment:
+    Studio & operator=(const Studio &other);
+    //TODO: move oprators???
+    //destructor
+    ~Studio();
     void start();
     int getNumOfTrainers() const;
     Trainer* getTrainer(int tid);
@@ -25,8 +31,11 @@ public:
     void tokenize(string &str, char delim, vector<int> &out);
     void tokenize(string &str, char delim, vector<string> &out);
     void log_action(BaseAction *action);
+    
+    
 
 private:
+    void clear();
     bool open;
     int customerId;
     std::vector<Trainer*> trainers;
