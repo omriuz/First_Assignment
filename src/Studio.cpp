@@ -29,7 +29,7 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     //turn the rest of text into workouts_data
     vector<vector<string>> workouts_data(text.size()-2);
     for(int i = 2; i<text.size();i++){
-        tokenize(text[i], ', ', workouts_data[i-2]);
+        tokenize(text[i], ',', workouts_data[i-2]);
         ss.clear();
         ss<<workouts_data[i-2][2];
         int price;
@@ -81,7 +81,7 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 	while ((start = str.find_first_not_of(delim, end)) != string::npos)
 	{
 		end = str.find(delim, start);
-		out.push_back(str.substr(start, end - start-1));
+		out.push_back(str.substr(start, end - start));
 	}
 }
 void Studio::start(){

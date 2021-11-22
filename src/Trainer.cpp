@@ -128,9 +128,12 @@ void Trainer::inc_salary(int amount){
 
     salary = salary + amount;
 }
-void Trainer::copy(const Trainer &other)const{
-    //shallow copy customer list:
-    this->customersList(other.customersList);
+void Trainer::copy(const Trainer &other){
+    // shallow copy customer list:
+    for(Customer *c : other.customersList){
+        Customer *customer = c;
+        customersList.push_back(customer);
+    }
     //deep copy order list:
     for(OrderPair pair : other.orderList){
         OrderPair p(pair.first,pair.second);
