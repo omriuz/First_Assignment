@@ -19,6 +19,7 @@ private:
 
 
 class SweatyCustomer : public Customer {
+
 public:
 	SweatyCustomer(std::string name, int id);
     std::vector<int> order(const std::vector<Workout> &workout_options);

@@ -5,8 +5,7 @@
 typedef std::pair<int, int> trainerPair;
 //we need to build the default constructor
 Studio :: Studio(){};
-
-Studio :: Studio(const std::string &configFilePath):open(true){
+Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     ifstream my_config_file(configFilePath);
     int num_of_trainers;
     vector<int> trainers_capacity;
@@ -101,9 +100,18 @@ void Studio::close(){
     }
     open = false;
 }
-// const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
-// std::vector<Workout>& getWorkoutOptions();
+const std::vector<BaseAction*>& Studio::getActionsLog() const{
+    return actionsLog;
+} 
 std::vector<Workout>& Studio::getWorkoutOptions(){
     return workout_options;
 };
-
+int Studio::getCustomerId(){
+    return customerId;
+};
+void Studio::incCustomerId(){
+    this->customerId++;
+};
+void Studio::log_action(BaseAction *action){
+    actionsLog.push_back(action);
+};
