@@ -8,6 +8,7 @@ std::string Customer::getName() const{
     return name;}
 int Customer::getId() const{
     return id;};
+Customer::~Customer() = default;
 
 // _______________________SweatyCustomer______________________________
 
@@ -33,7 +34,7 @@ std::string SweatyCustomer::toString() const{
 SweatyCustomer* SweatyCustomer::clone(){
     return new SweatyCustomer(this->getName(), this->getId());
 }
-
+SweatyCustomer::~SweatyCustomer() = default;
 
 // _______________________CheapCustomer______________________________
 
@@ -47,6 +48,7 @@ std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_optio
     int cheapestId =-1;
     for (Workout w : workout_options){
             if(w.getPrice() < cheapest){
+                cheapest = w.getPrice();
                 cheapestId = w.getId();
             }
     }
@@ -62,6 +64,7 @@ std::string CheapCustomer::toString() const{
 CheapCustomer* CheapCustomer::clone(){
     return new CheapCustomer(this->getName(), this->getId());
 }
+CheapCustomer::~CheapCustomer() = default;
 
 // _______________________HeavyMuscleCustomer______________________________
 
@@ -95,7 +98,7 @@ std::string HeavyMuscleCustomer::toString() const{
 HeavyMuscleCustomer* HeavyMuscleCustomer::clone(){
     return new HeavyMuscleCustomer(this->getName(), this->getId());
 }
-
+HeavyMuscleCustomer::~HeavyMuscleCustomer() = default;
 
 // _______________________FullBodyCustomer______________________________
 
@@ -152,3 +155,4 @@ std::string FullBodyCustomer:: toString() const{
 FullBodyCustomer* FullBodyCustomer::clone(){
     return new FullBodyCustomer(this->getName(), this->getId());
 }
+FullBodyCustomer::~FullBodyCustomer()=default;

@@ -14,6 +14,7 @@ enum ActionStatus{
 //Forward declaration
 class Studio;
 
+extern Studio *backup;
 class BaseAction{
 public:
     BaseAction();
@@ -21,6 +22,7 @@ public:
     virtual void act(Studio& studio)=0;
     virtual std::string toString() const=0;
     virtual BaseAction* clone() = 0;
+    virtual ~BaseAction();
 protected:
     void complete();
     void error(std::string errorMsg);
@@ -38,6 +40,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual OpenTrainer* clone();
+    ~OpenTrainer();
 private:
 	const int trainerId;
 	std::vector<Customer *> customers;
@@ -50,6 +53,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual Order* clone();
+    ~Order();
 private:
     const int trainerId;
 };
@@ -60,6 +64,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual MoveCustomer* clone();
+    ~MoveCustomer();
 private:
     const int srcTrainer;
     const int dstTrainer;
@@ -72,6 +77,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual Close* clone();
+    ~Close();
 private:
     const int trainerId;
 };
@@ -83,6 +89,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual CloseAll* clone();
+    ~CloseAll();
 private:
 };
 
@@ -93,6 +100,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual PrintWorkoutOptions* clone();
+    ~PrintWorkoutOptions();
 private:
 };
 
@@ -103,6 +111,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual PrintTrainerStatus* clone();
+    ~PrintTrainerStatus();
 private:
     const int trainerId;
 };
@@ -114,6 +123,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual PrintActionsLog* clone();
+    ~PrintActionsLog();
 private:
 };
 
@@ -124,6 +134,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual BackupStudio* clone();
+    ~BackupStudio();
 private:
 };
 
@@ -134,8 +145,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual RestoreStudio* clone();
-
+    ~RestoreStudio();
 };
-
 
 #endif

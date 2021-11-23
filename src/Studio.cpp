@@ -4,8 +4,8 @@
 
 typedef std::pair<int, int> trainerPair;
 //constructors:
-Studio :: Studio(){};
-Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
+Studio :: Studio():open(false),customerId(0),trainers(),workout_options(),actionsLog(){};
+Studio :: Studio(const std::string &configFilePath):open(true),customerId(0),trainers(),workout_options(),actionsLog(){
     ifstream my_config_file(configFilePath);
     int num_of_trainers;
     vector<int> trainers_capacity;
@@ -28,26 +28,28 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     }
     //turn the rest of text into workouts_data
     vector<vector<string>> workouts_data(text.size()-2);
-    for(int i = 2; i<text.size();i++){
+    for(size_t i = 2; i<text.size();i++){
         tokenize(text[i], ',', workouts_data[i-2]);
         ss.clear();
         ss<<workouts_data[i-2][2];
         int price;
         ss >> price;
         WorkoutType type;
-        if(workouts_data[i-2][1] == "Anaerobic")
+        if(workouts_data[i-2][1] == " Anaerobic")
             type = ANAEROBIC;
-        else if (workouts_data[i-2][1] == "Mixed")
+        else if (workouts_data[i-2][1] == " Mixed")
             type = MIXED;
-        else type = CARDIO;
+        else if (workouts_data[i-2][1] == " Cardio")
+            type = CARDIO;
+        
         std::string w_name = workouts_data[i-2][0];
-        Workout a (i-1,w_name,price,type);
+        Workout a (i-2,w_name,price,type);
         workout_options.push_back(a);
     }
     my_config_file.close();
 };
 //copy constructor:
-Studio :: Studio(const Studio &other):open(other.open), customerId(other.customerId){
+Studio :: Studio(const Studio &other):open(other.open), customerId(other.customerId),trainers(),workout_options(),actionsLog(){
     copy(other);
 }
 //copy assignment operator
@@ -58,6 +60,20 @@ Studio & Studio::operator=(const Studio &other){
     copy(other);
     return *this;
 
+}
+//move constructor:
+Studio :: Studio(Studio &&other):open(other.open), customerId(other.customerId),trainers(),workout_options(),actionsLog(){
+    move_clean(other);
+}
+//move assignment:
+Studio & Studio::operator=(Studio &&other){
+   if(this==&other)
+        return *this;
+    clear();
+    this->open = other.open;
+    this->customerId = other.customerId;
+    move_clean(other);
+    return *this; 
 }
 //destructor:
 Studio::~Studio(){
@@ -91,19 +107,20 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 }
 void Studio::start(){
     open = true;
+    std::cout<<"Studio is now open!"<<endl;
 };
 int Studio::getNumOfTrainers() const{
     return trainers.size();
 };
 Trainer* Studio::getTrainer(int tid){
-    if(tid<0 || tid>=trainers.size()){
+    if(tid<0 || tid >= (int)trainers.size()){
         return nullptr;
     }
     //built upon the face that a trainer id is his order in the vecotr
     return trainers[tid];
 };
 void Studio::close(){
-    int length = getNumOfTrainers();
+    size_t length = getNumOfTrainers();
     vector <trainerPair> closed_trainers;
     for (size_t i = 0; i < length; i++)
     {
@@ -159,7 +176,22 @@ void Studio::copy(const Studio &other){
     }
     for(BaseAction* a : actionsLog){
         BaseAction* next_action = a->clone();
-        this->actionsLog.push_back(a);
+        this->actionsLog.push_back(next_action);
     }
 }
-//TODO : we might need to add copy constructor, copy assigment operator and rule of 5
+void Studio::move_clean(Studio &other){
+        for(Trainer* t : other.trainers){
+        this->trainers.push_back(t);
+    }
+    for(Workout w : other.workout_options){
+        this->workout_options.push_back(w);
+    }
+    for(BaseAction* a : actionsLog){
+        this->actionsLog.push_back(a);
+    }
+    other.open = NULL;
+    other.customerId = 0;
+    trainers.clear();
+    workout_options.clear();
+    actionsLog.clear();
+}

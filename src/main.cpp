@@ -17,9 +17,7 @@ static std::string getWord(std::string &input, char sep=' '){
     std::size_t endIndex = input.find_first_of(sep);
     if(endIndex == std::string::npos){
     word = input;
-    std::size_t endIndex = input.length();
     input = "";
-
     }else{
     word = input.substr(0, endIndex);
     input = input.substr(endIndex+1);
@@ -140,7 +138,6 @@ int main(int argc, char** argv){
     bool run = true;
     while(run){
         std::string input;
-        std::cout << "please enter the requested action: "<< std::endl;
         std::getline(std::cin, input);
         BaseAction *action = buildAction(input,studio);
         action->act(studio);
