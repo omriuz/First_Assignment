@@ -72,6 +72,7 @@ void Order::act(Studio &studio){
         std::cout<< BaseAction::getErrorMsg()<<endl;
     }
     else{
+        
         std::vector<Workout>& Workout_options= studio.getWorkoutOptions();
         std::vector <Customer*>& customers = t->getCustomers();
         for(Customer* c : customers){
