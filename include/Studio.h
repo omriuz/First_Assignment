@@ -31,7 +31,7 @@ public:
     void tokenize(string &str, char delim, vector<int> &out);
     void tokenize(string &str, char delim, vector<string> &out);
     void log_action(BaseAction *action);
-    
+    void copy(const Studio &other);
     
 
 private:

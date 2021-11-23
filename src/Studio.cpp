@@ -47,17 +47,22 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     my_config_file.close();
 };
 //copy constructor:
-Studio :: Studio(const Studio &Other){
-    //TODO: we need to decide on the implentation according to backup
+Studio :: Studio(const Studio &other):open(other.open), customerId(other.customerId){
+    copy(other);
+}
+//copy assignment operator
+Studio & Studio::operator=(const Studio &other){
+    if(this==&other)
+        return *this;
+    clear();
+    copy(other);
+    return *this;
+
 }
 //destructor:
 Studio::~Studio(){
     clear();
 }
-//move assignment operator:
-Studio &Studio::operator=(const Studio &other){
-    //TODO: fill the imp according to backup and restore
-};
 void Studio::tokenize(string &str, char delim, vector<int> &out)
 {
 	size_t start;
@@ -142,5 +147,19 @@ void Studio::clear(){
     trainers.clear();
     workout_options.clear();
     actionsLog.clear();
+}
+void Studio::copy(const Studio &other){
+    for(Trainer* t : other.trainers){
+        Trainer next_trainer(*t);
+        trainers.push_back(&next_trainer);
+    }
+    for(Workout w : other.workout_options){
+        Workout next_workout(w);
+        this->workout_options.push_back(w);
+    }
+    for(BaseAction* a : actionsLog){
+        BaseAction* next_action = a->clone();
+        this->actionsLog.push_back(a);
+    }
 }
 //TODO : we might need to add copy constructor, copy assigment operator and rule of 5
