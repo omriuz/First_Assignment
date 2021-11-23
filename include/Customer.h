@@ -28,8 +28,6 @@ public:
     SweatyCustomer* clone();
 private:
 };
-
-
 class CheapCustomer : public Customer {
 public:
 	CheapCustomer(std::string name, int id);
@@ -38,8 +36,6 @@ public:
     CheapCustomer* clone();
 private:
 };
-
-
 class HeavyMuscleCustomer : public Customer {
 public:
 	HeavyMuscleCustomer(std::string name, int id);
@@ -48,8 +44,6 @@ public:
     HeavyMuscleCustomer* clone();
 private:
 };
-
-
 class FullBodyCustomer : public Customer {
 public:
 	FullBodyCustomer(std::string name, int id);

@@ -29,17 +29,19 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     //turn the rest of text into workouts_data
     vector<vector<string>> workouts_data(text.size()-2);
     for(int i = 2; i<text.size();i++){
-        tokenize(text[i], ', ', workouts_data[i-2]);
+        tokenize(text[i], ',', workouts_data[i-2]);
         ss.clear();
         ss<<workouts_data[i-2][2];
         int price;
         ss >> price;
         WorkoutType type;
-        if(workouts_data[i-2][1] == "Anaerobic")
+        if(workouts_data[i-2][1] == " Anaerobic")
             type = ANAEROBIC;
-        else if (workouts_data[i-2][1] == "Mixed")
+        else if (workouts_data[i-2][1] == " Mixed")
             type = MIXED;
-        else type = CARDIO;
+        else if(workouts_data[i-2][1] == " Cardio")
+            type = CARDIO;
+        
         std::string w_name = workouts_data[i-2][0];
         Workout a (i-1,w_name,price,type);
         workout_options.push_back(a);
@@ -47,28 +49,36 @@ Studio :: Studio(const std::string &configFilePath):open(true),customerId(0){
     my_config_file.close();
 };
 //copy constructor:
-Studio :: Studio(Studio &Other):open(Other.open), customerId(Other.customerId){
-    for(Trainer* t : Other.trainers){
-        Trainer next_trainer(*t); 
-        this->trainers.push_back(&next_trainer);
-    }
-    for(Workout w : Other.workout_options){
-        Workout next_workout(w);
-        this->workout_options.push_back(w);
-    }
-    for(BaseAction* a : actionsLog){
-        BaseAction* next_action = a->clone();
-        this->actionsLog.push_back(a);
-    }
+Studio :: Studio(const Studio &other):open(other.open), customerId(other.customerId){
+    copy(other);
+}
+Studio :: Studio(Studio &&other):open(other.open), customerId(other.customerId){
+    move_clean(other);
+}
+//copy assignment operator
+Studio & Studio::operator=(const Studio &other){
+    if(this==&other)
+        return *this;
+    clear();
+    this->open = other.open;
+    this->customerId = other.customerId;
+    copy(other);
+    return *this;
+
+}
+Studio & Studio::operator=(Studio &&other){
+   if(this==&other)
+        return *this;
+    clear();
+    this->open = other.open;
+    this->customerId = other.customerId;
+    move_clean(other);
+    return *this; 
 }
 //destructor:
 Studio::~Studio(){
     clear();
 }
-//move assignment operator:
-Studio &Studio::operator=(const Studio &other){
-    //TODO: fill the imp according to backup and restore
-};
 void Studio::tokenize(string &str, char delim, vector<int> &out)
 {
 	size_t start;
@@ -92,7 +102,7 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 	while ((start = str.find_first_not_of(delim, end)) != string::npos)
 	{
 		end = str.find(delim, start);
-		out.push_back(str.substr(start, end - start-1));
+		out.push_back(str.substr(start, end - start));
 	}
 }
 void Studio::start(){
@@ -101,7 +111,7 @@ void Studio::start(){
 int Studio::getNumOfTrainers() const{
     return trainers.size();
 };
-Trainer* Studio::getTrainer(int tid) const{
+Trainer* Studio::getTrainer(int tid){
     if(tid<0 || tid>=trainers.size()){
         return nullptr;
     }
@@ -129,10 +139,7 @@ const std::vector<BaseAction*>& Studio::getActionsLog() const{
 std::vector<Workout>& Studio::getWorkoutOptions(){
     return workout_options;
 };
-std::vector<Trainer*>& Studio::getTrainers(){
-    return this->trainers;
-};
-int Studio::getCustomerId() const{
+int Studio::getCustomerId(){
     return customerId;
 };
 void Studio::incCustomerId(){
@@ -141,10 +148,6 @@ void Studio::incCustomerId(){
 void Studio::log_action(BaseAction *action){
     actionsLog.push_back(action);
 };
-bool Studio::is_open() const{
-    return this->open;
-};
-
 void Studio::clear(){
     for(Trainer *t : trainers){
         delete t;
@@ -160,7 +163,35 @@ void Studio::clear(){
     trainers.clear();
     workout_options.clear();
     actionsLog.clear();
-
-
+}
+void Studio::copy(const Studio &other){
+    for(Trainer* t : other.trainers){
+        Trainer next_trainer(*t);
+        trainers.push_back(&next_trainer);
+    }
+    for(Workout w : other.workout_options){
+        Workout next_workout(w);
+        this->workout_options.push_back(w);
+    }
+    for(BaseAction* a : actionsLog){
+        BaseAction* next_action = a->clone();
+        this->actionsLog.push_back(a);
+    }
+}
+void Studio::move_clean(Studio &other){
+        for(Trainer* t : other.trainers){
+        this->trainers.push_back(t);
+    }
+    for(Workout w : other.workout_options){
+        this->workout_options.push_back(w);
+    }
+    for(BaseAction* a : actionsLog){
+        this->actionsLog.push_back(a);
+    }
+    other.open = NULL;
+    other.customerId = 0;
+    trainers.clear();
+    workout_options.clear();
+    actionsLog.clear();
 }
 //TODO : we might need to add copy constructor, copy assigment operator and rule of 5

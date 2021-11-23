@@ -2,11 +2,7 @@
 #include <iostream>
 #include "Studio.h"
 
-
-////
-//
 //class:BaseAction
-//TODO: check for diffrent initalization in constructor
 BaseAction::BaseAction(){};
 ActionStatus BaseAction::getStatus() const{
     return status;
@@ -47,17 +43,22 @@ void OpenTrainer::act( Studio& studio){
          }
          complete();
     }
-    studio.log_action(this);
-};
-std::string OpenTrainer::toString() const{
-    string s = "open " + std::to_string(trainerId) + " ";
     for(Customer *c : customers){
-        s = s + c->toString() + " ";
+        customers_descriptions+=c->toString() + " ";
     }
+    
+    studio.log_action(this);
+}
+std::string OpenTrainer::toString() const{
+    string s = "open " + std::to_string(trainerId) + " " + customers_descriptions;
     string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
     s = s + " " + action_status;
     return s;
-};
+}
+
+OpenTrainer* OpenTrainer::clone(){
+    return (new OpenTrainer(trainerId,customers));
+}
 
 
 // class:Order
@@ -71,6 +72,7 @@ void Order::act(Studio &studio){
         std::cout<< BaseAction::getErrorMsg()<<endl;
     }
     else{
+        
         std::vector<Workout>& Workout_options= studio.getWorkoutOptions();
         std::vector <Customer*>& customers = t->getCustomers();
         for(Customer* c : customers){
@@ -94,7 +96,9 @@ std::string Order::toString() const{
     s = s + " " + action_status;
     return s;
 }
-
+Order* Order::clone(){
+    return (new Order(trainerId));
+}
 
 // class MoveCustomer:
 
@@ -138,8 +142,9 @@ std::string MoveCustomer::toString() const{
     s = s + " " + action_status;
     return s;
 }
-
-
+MoveCustomer* MoveCustomer::clone(){
+    return (new MoveCustomer(srcTrainer,dstTrainer,id));
+}
 
 //class close:
 
@@ -164,8 +169,10 @@ std::string Close::toString()const{
     string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
     s = s + " " + action_status;
     return s;
-};
-
+}
+Close* Close::clone(){
+    return (new Close(trainerId));
+}
 
 CloseAll::CloseAll(){};
 
@@ -178,11 +185,11 @@ std::string CloseAll::toString() const{
     string s = "closeall Completed";
     return s;
 };
-
-
+CloseAll* CloseAll::clone(){
+    return (new CloseAll());
+}
 
 //class PrintWorkoutOptions : public BaseAction 
-
 
 PrintWorkoutOptions::PrintWorkoutOptions(){};
 void PrintWorkoutOptions::act(Studio &studio){
@@ -198,7 +205,9 @@ std::string PrintWorkoutOptions::toString() const{
     string s = "workout_options Completed";
     return s;
 };
-
+PrintWorkoutOptions* PrintWorkoutOptions::clone(){
+    return (new PrintWorkoutOptions());
+}
 
 //class PrintTrainerStatus : public BaseAction {
 
@@ -231,8 +240,11 @@ string PrintTrainerStatus::toString() const{
     string s = "status " + std::to_string(trainerId) + " Completed";
     return s;
 
-};
+}
 
+PrintTrainerStatus* PrintTrainerStatus::clone(){
+    return (new PrintTrainerStatus(trainerId));
+}
 //class PrintActionsLog : public BaseAction {
 
 PrintActionsLog::PrintActionsLog():BaseAction(){};
@@ -249,17 +261,7 @@ std::string PrintActionsLog::toString() const {
     string s = "log Completed";
     return s;
 }
- //______________________Backup Studio________________________
- /*class BackupStudio : public BaseAction {
-public:
-    BackupStudio();
-    void act(Studio &studio);
-    std::string toString() const;
-private:
-};
-*/
-BackupStudio::BackupStudio(){}
-
-void BackupStudio::act(Studio &Studio){
-    backup = new Studio(Studio);
+PrintActionsLog* PrintActionsLog::clone(){
+    return (new PrintActionsLog());
 }
+

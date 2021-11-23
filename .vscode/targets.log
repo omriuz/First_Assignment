@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Nov 22 20:44:40 2021
+# Make data base, printed on Tue Nov 23 18:06:09 2021
 
 # Variables
 
@@ -73,7 +73,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1315,unix/spl211:/tmp/.ICE-unix/1315
+SESSION_MANAGER = local/spl211:@/tmp/.ICE-unix/1097,unix/spl211:/tmp/.ICE-unix/1097
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -93,7 +93,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2066
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2002
 # automatic
 %F = $(notdir $%)
 # environment
@@ -107,7 +107,7 @@ PWD = /home/spl211/SPL/First_Assignment/First_Assignment
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1444
+SSH_AGENT_PID = 1230
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -147,7 +147,7 @@ SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c64af6d4-f8d0-4a77-ab2a-0f20cb4a5842.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f14a7c31-846c-4909-b609-45c722f4e7f1.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
@@ -213,7 +213,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2066
+VSCODE_PID = 2002
 # variable set hash-table stats:
 # Load=102/1024=10%, Rehash=0, Collisions=15/130=12%
 
@@ -235,9 +235,8 @@ VSCODE_PID = 2066
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 16:21:23.947110891
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 24):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Customer.o src/Customer.cpp
 
@@ -252,64 +251,41 @@ all: run
 
 # Not a target:
 src/Studio.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-19 16:49:18.985988898
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/Action.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 18:09:18.461689027
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 16:21:22.783110891
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 18):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Studio.o src/Studio.cpp 
 
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2021-11-20 16:21:24.563110891
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
- 
-# @ := bin/Action.o
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := src/Action.cpp
-# automatic
-# | := 
-# automatic
-# < := src/Action.cpp
-# automatic
-# ^ := src/Action.cpp
-# automatic
-# ? := src/Action.cpp
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 27):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
 
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-13 14:40:22.185695338
+#  Last modified 2021-11-22 20:44:57
 #  File has been updated.
 #  Successfully updated.
 
@@ -321,17 +297,15 @@ makefile:
 
 # Not a target:
 src/Workout.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 15:23:30.129526138
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/Trainer.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-13 14:40:22.20170334
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 #  Implicit rule search has not been done.
@@ -357,42 +331,58 @@ clean:
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 16:21:24.143110891
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 30):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
 	
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 16:21:23.195110891
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 21):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp
 
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-20 11:31:47.305499001
+#  Last modified 2021-11-22 22:59:22.634816836
 #  File has been updated.
 #  Successfully updated.
 
 bin/main.o: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 16:21:22.091110891
+#  Implicit/static pattern stem: ''
+#  Last modified 2021-11-22 20:44:57
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := bin/main.o
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := src/main.cpp
+# automatic
+# | := 
+# automatic
+# < := src/main.cpp
+# automatic
+# ^ := src/main.cpp
+# automatic
+# ? := src/main.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'makefile', line 15):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/main.o src/main.cpp 
 
 # Not a target:
 src/Customer.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 11:41:15.049229002
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
 # Load=18/1024=2%, Rehash=0, Collisions=1/50=2%
@@ -408,6 +398,6 @@ src/Customer.cpp:
 # strcache performance: lookups = 51 / hit rate = 43%
 # hash-table stats:
 # Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Mon Nov 22 20:44:40 2021
+# Finished Make data base on Tue Nov 23 18:06:10 2021
 
  

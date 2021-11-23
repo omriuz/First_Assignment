@@ -29,8 +29,6 @@ static std::string getWord(std::string &input, char sep=' '){
     return word;
 
 }
-
-
 static Customer* builsCustomer(std::string name, std::string strategy, Studio &studio){
     Customer *customer;
     if(strategy.compare("swt") == 0){ //Sweaty Customer
@@ -49,8 +47,6 @@ static Customer* builsCustomer(std::string name, std::string strategy, Studio &s
 
     
 }  
-
-
 static BaseAction* buildAction(std::string input, Studio &studio){
     // std::size_t startIndex = 0;
     BaseAction *action;
@@ -126,9 +122,7 @@ static BaseAction* buildAction(std::string input, Studio &studio){
     // }else if(actionType.compare("restore") == 0){
     //     action = new RestoreStudio();
     return action;
-    }
-    
-    
+    } 
 int main(int argc, char** argv){
     if(argc!=2){
         std::cout << "usage: studio <config_path>" << std::endl;
@@ -136,6 +130,7 @@ int main(int argc, char** argv){
     }
     string configurationFile = argv[1];
     Studio studio(configurationFile);
+    // Studio studio2(Studio(configurationFile));
     studio.start();
     bool run = true;
     while(run){

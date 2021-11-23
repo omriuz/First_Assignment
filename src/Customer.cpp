@@ -25,22 +25,20 @@ std::vector<int> SweatyCustomer:: order(const std::vector<Workout> &workout_opti
     return workout_order;
     //return vector of workouts that the customer ordered
 }
-
 std::string SweatyCustomer::toString() const{
     std::string s = getName() + ",swt";
     return s;
 }
-
 SweatyCustomer* SweatyCustomer::clone(){
     return new SweatyCustomer(this->getName(), this->getId());
 }
+
 
 // _______________________CheapCustomer______________________________
 
 //TODO: theres a bug in cheap customer. it dosent show the workout name in the output
 CheapCustomer::CheapCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
-
 std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     int cheapest = INT32_MAX;
@@ -54,12 +52,10 @@ std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_optio
     return workout_order;
     //return vector of workouts that the customer ordered
 }
-
 std::string CheapCustomer::toString() const{
     std::string s = getName() + ",chp";
     return s;
 }
-
 CheapCustomer* CheapCustomer::clone(){
     return new CheapCustomer(this->getName(), this->getId());
 }
@@ -68,7 +64,6 @@ CheapCustomer* CheapCustomer::clone(){
 
 HeavyMuscleCustomer::HeavyMuscleCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
-
 std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     std::vector<std::pair<int,int>> anaerobic_pairs; //need to be deleted
@@ -88,21 +83,19 @@ std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout
     }
     return workout_order;
 }
-
 std::string HeavyMuscleCustomer::toString() const{
     std::string s = getName() + ",mcl";
     return s;
 }
-
 HeavyMuscleCustomer* HeavyMuscleCustomer::clone(){
     return new HeavyMuscleCustomer(this->getName(), this->getId());
 }
+
 
 // _______________________FullBodyCustomer______________________________
 
 FullBodyCustomer::FullBodyCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
-
 std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     std::vector<std::pair<int,int>> cardio_pairs; //need to be deleted
@@ -145,12 +138,10 @@ std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_op
     
     return workout_order;
 }
-
 std::string FullBodyCustomer:: toString() const{
     std::string s = getName() + ",fbd";
     return s;
 }
-
 FullBodyCustomer* FullBodyCustomer::clone(){
     return new FullBodyCustomer(this->getName(), this->getId());
 }
