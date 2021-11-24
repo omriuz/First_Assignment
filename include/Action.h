@@ -23,6 +23,8 @@ public:
     virtual std::string toString() const=0;
     virtual BaseAction* clone() = 0;
     virtual ~BaseAction();
+    void set_status(ActionStatus status);
+    void set_error_msg(string errormsg);
 protected:
     void complete();
     void error(std::string errorMsg);
@@ -40,6 +42,7 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     virtual OpenTrainer* clone();
+    void set_customers_descriptions(string s);
     ~OpenTrainer();
 private:
 	const int trainerId;

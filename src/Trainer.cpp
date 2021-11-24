@@ -143,9 +143,9 @@ void Trainer::inc_salary(int amount){
     salary = salary + amount;
 }
 void Trainer::copy(const Trainer &other){
-    // shallow copy customer list:
+    // deep copy customer list:
     for(Customer *c : other.customersList){
-        Customer *customer = c;
+        Customer *customer = c->clone();
         customersList.push_back(customer);
     }
     //deep copy order list:
@@ -155,6 +155,8 @@ void Trainer::copy(const Trainer &other){
     }
 }
 void Trainer::clear(){
+    for(Customer *c:customersList)
+        delete c;
     customersList.clear();
     orderList.clear();
 }

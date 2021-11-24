@@ -29,7 +29,7 @@ static std::string getWord(std::string &input, char sep=' '){
 }
 
 
-static Customer* builsCustomer(std::string name, std::string strategy, Studio &studio){
+static Customer* buildCustomer(std::string name, std::string strategy, Studio &studio){
     Customer *customer;
     if(strategy.compare("swt") == 0){ //Sweaty Customer
         customer = new SweatyCustomer(name,studio.getCustomerId());
@@ -61,7 +61,7 @@ static BaseAction* buildAction(std::string input, Studio &studio){
         while( input.length() != 0){
             std::string name = getWord(input, ',');
             std::string strategy = getWord(input);
-            newCustomer = builsCustomer(name, strategy, studio);
+            newCustomer = buildCustomer(name, strategy, studio);
             customersList.push_back(newCustomer);
         }
         action = new OpenTrainer(trainerId,customersList);  

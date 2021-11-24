@@ -108,6 +108,7 @@ void Studio::tokenize(string &str, char delim, vector<string> &out)
 void Studio::start(){
     open = true;
     std::cout<<"Studio is now open!"<<endl;
+    backup = new Studio();
 };
 int Studio::getNumOfTrainers() const{
     return trainers.size();
@@ -167,14 +168,15 @@ void Studio::clear(){
 }
 void Studio::copy(const Studio &other){
     for(Trainer* t : other.trainers){
-        Trainer next_trainer(*t);
-        trainers.push_back(&next_trainer);
+
+        Trainer *next_trainer = new Trainer(*t);
+        trainers.push_back(next_trainer);
     }
     for(Workout w : other.workout_options){
         Workout next_workout(w);
-        this->workout_options.push_back(w);
+        this->workout_options.push_back(next_workout);
     }
-    for(BaseAction* a : actionsLog){
+    for(BaseAction* a : other.actionsLog){
         BaseAction* next_action = a->clone();
         this->actionsLog.push_back(next_action);
     }
