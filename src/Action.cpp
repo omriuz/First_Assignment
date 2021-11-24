@@ -138,7 +138,7 @@ void MoveCustomer::act(Studio &studio){
 
 std::string MoveCustomer::toString() const{
     string s = "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer);
-    s = " " + std::to_string(id);
+    s = s + " " + std::to_string(id);
     string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
     s = s + " " + action_status;
     return s;
