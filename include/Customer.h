@@ -13,6 +13,7 @@ public:
     virtual Customer* clone() = 0;
     std::string getName() const;
     int getId() const;
+    virtual ~Customer();
 private:
     const std::string name;
     const int id;
@@ -26,30 +27,40 @@ public:
     std::vector<int> order(const std::vector<Workout> &workout_options);
     std::string toString() const;
     SweatyCustomer* clone();
-private:
+    ~SweatyCustomer();
+    private:
 };
+
+
 class CheapCustomer : public Customer {
 public:
 	CheapCustomer(std::string name, int id);
     std::vector<int> order(const std::vector<Workout> &workout_options);
     std::string toString() const;
     CheapCustomer* clone();
+    ~CheapCustomer();
 private:
 };
+
+
 class HeavyMuscleCustomer : public Customer {
 public:
 	HeavyMuscleCustomer(std::string name, int id);
     std::vector<int> order(const std::vector<Workout> &workout_options);
     std::string toString() const;
     HeavyMuscleCustomer* clone();
+    ~HeavyMuscleCustomer();
 private:
 };
+
+
 class FullBodyCustomer : public Customer {
 public:
 	FullBodyCustomer(std::string name, int id);
     std::vector<int> order(const std::vector<Workout> &workout_options);
     std::string toString() const;
     FullBodyCustomer* clone();
+    ~FullBodyCustomer();
 private:
 };
 

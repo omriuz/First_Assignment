@@ -8,6 +8,7 @@ std::string Customer::getName() const{
     return name;}
 int Customer::getId() const{
     return id;};
+Customer::~Customer() = default;
 
 // _______________________SweatyCustomer______________________________
 
@@ -25,6 +26,7 @@ std::vector<int> SweatyCustomer:: order(const std::vector<Workout> &workout_opti
     return workout_order;
     //return vector of workouts that the customer ordered
 }
+
 std::string SweatyCustomer::toString() const{
     std::string s = getName() + ",swt";
     return s;
@@ -32,19 +34,21 @@ std::string SweatyCustomer::toString() const{
 SweatyCustomer* SweatyCustomer::clone(){
     return new SweatyCustomer(this->getName(), this->getId());
 }
-
+SweatyCustomer::~SweatyCustomer() = default;
 
 // _______________________CheapCustomer______________________________
 
 //TODO: theres a bug in cheap customer. it dosent show the workout name in the output
 CheapCustomer::CheapCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
+
 std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     int cheapest = INT32_MAX;
     int cheapestId =-1;
     for (Workout w : workout_options){
             if(w.getPrice() < cheapest){
+                cheapest = w.getPrice();
                 cheapestId = w.getId();
             }
     }
@@ -52,6 +56,7 @@ std::vector<int> CheapCustomer:: order(const std::vector<Workout> &workout_optio
     return workout_order;
     //return vector of workouts that the customer ordered
 }
+
 std::string CheapCustomer::toString() const{
     std::string s = getName() + ",chp";
     return s;
@@ -59,11 +64,13 @@ std::string CheapCustomer::toString() const{
 CheapCustomer* CheapCustomer::clone(){
     return new CheapCustomer(this->getName(), this->getId());
 }
+CheapCustomer::~CheapCustomer() = default;
 
 // _______________________HeavyMuscleCustomer______________________________
 
 HeavyMuscleCustomer::HeavyMuscleCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
+
 std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     std::vector<std::pair<int,int>> anaerobic_pairs; //need to be deleted
@@ -83,6 +90,7 @@ std::vector<int> HeavyMuscleCustomer:: order(const std::vector<Workout> &workout
     }
     return workout_order;
 }
+
 std::string HeavyMuscleCustomer::toString() const{
     std::string s = getName() + ",mcl";
     return s;
@@ -90,12 +98,13 @@ std::string HeavyMuscleCustomer::toString() const{
 HeavyMuscleCustomer* HeavyMuscleCustomer::clone(){
     return new HeavyMuscleCustomer(this->getName(), this->getId());
 }
-
+HeavyMuscleCustomer::~HeavyMuscleCustomer() = default;
 
 // _______________________FullBodyCustomer______________________________
 
 FullBodyCustomer::FullBodyCustomer(std::string c_name, int c_id):Customer(c_name,c_id){
 }
+
 std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_options){
     std::vector<int> workout_order; // check if need to be new
     std::vector<std::pair<int,int>> cardio_pairs; //need to be deleted
@@ -138,6 +147,7 @@ std::vector<int> FullBodyCustomer:: order(const std::vector<Workout> &workout_op
     
     return workout_order;
 }
+
 std::string FullBodyCustomer:: toString() const{
     std::string s = getName() + ",fbd";
     return s;
@@ -145,3 +155,4 @@ std::string FullBodyCustomer:: toString() const{
 FullBodyCustomer* FullBodyCustomer::clone(){
     return new FullBodyCustomer(this->getName(), this->getId());
 }
+FullBodyCustomer::~FullBodyCustomer()=default;

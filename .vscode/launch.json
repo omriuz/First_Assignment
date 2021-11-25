@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/home/spl211/SPL/First_Assignment/First_Assignment/bin/run",
-            "args": ["/home/spl211/SPL/First_Assignment/First_Assignment/ExmapleInput.txt"],
+            "args": ["/home/spl211/SPL/First_Assignment/First_Assignment/ExmapleInput.txt","/home/spl211/SPL/First_Assignment/First_Assignment/testCommands.txt"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

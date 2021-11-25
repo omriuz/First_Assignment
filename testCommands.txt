@@ -1,0 +1,14 @@
+open 2 yoni,swt
+order 2
+status 0
+status 2
+close 2 
+status 2
+open 1 aaa,swt
+status 1
+closeall
+
+
+
+
+
