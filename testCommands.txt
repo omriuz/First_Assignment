@@ -1,11 +1,19 @@
-open 2 yoni,swt
-order 2
+open 3 yoni,swt omri,chp shani,mcl adi,mcl moshe,chp roni,swt
+order 3
+status 3
+open 0 gal,swt ran,mcl
+order 0
+move 0 3 6
 status 0
-status 2
-close 2 
-status 2
-open 1 aaa,swt
-status 1
+status 3
+log
+backup
+backup
+log
+close 0
+status 0
+restore
+status 0
 closeall
 
 

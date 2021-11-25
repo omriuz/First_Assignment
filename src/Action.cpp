@@ -51,12 +51,14 @@ void OpenTrainer::act( Studio& studio){
             //else delete the customer to avoid memory leak
             else{
                 delete customers[i];
-                customers.erase(customers.begin()+i);
+                customers[i] = nullptr;
+                studio.decCustomerId();
             }
          }
          complete();
     }
     for(Customer *c :customers){
+        if(c)
         customers_descriptions+=c->toString() + " ";
     }
     

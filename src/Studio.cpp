@@ -147,6 +147,9 @@ int Studio::getCustomerId(){
 void Studio::incCustomerId(){
     this->customerId++;
 };
+void Studio::decCustomerId(){
+    this->customerId--;
+}
 void Studio::log_action(BaseAction *action){
     actionsLog.push_back(action);
 };

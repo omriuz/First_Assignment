@@ -31,6 +31,7 @@ public:
     std::vector<Workout>& getWorkoutOptions();
     void close();
     void incCustomerId();
+    void decCustomerId();
     int getCustomerId();
     void tokenize(string &str, char delim, vector<int> &out);
     void tokenize(string &str, char delim, vector<string> &out);
