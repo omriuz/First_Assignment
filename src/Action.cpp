@@ -341,6 +341,7 @@ void RestoreStudio::act(Studio &studio){
     studio.log_action(this);
 }
 
+
 std::string RestoreStudio::toString() const {
     string s = "restore";
     string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
