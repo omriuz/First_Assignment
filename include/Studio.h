@@ -14,10 +14,14 @@ public:
     //constructors:
 	Studio();
     Studio(const std::string &configFilePath);
+    //copy constructor
     Studio(const Studio &Other);
     //copy assignment:
     Studio & operator=(const Studio &other);
-    //TODO: move oprators???
+    //move constructor:
+    Studio(Studio &&other);
+    //move assignment:
+    Studio & operator=(Studio &&other);
     //destructor
     ~Studio();
     void start();
@@ -32,9 +36,10 @@ public:
     void tokenize(string &str, char delim, vector<string> &out);
     void log_action(BaseAction *action);
     
-    
 
 private:
+    void move_clean(Studio &other);
+    void copy(const Studio &other);
     void clear();
     bool open;
     int customerId;

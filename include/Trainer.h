@@ -24,6 +24,7 @@ public:
     Trainer(Trainer && other);
     //move assignment:
     Trainer& operator=(Trainer &&other);
+    //methods:
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);
@@ -44,6 +45,7 @@ public:
 private:
     void copy(const Trainer &other);
     void clear();
+    void move_copy(Trainer &other);
     int salary;
     int capacity;
     bool open;

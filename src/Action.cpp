@@ -3,7 +3,7 @@
 #include "Studio.h"
 
 //class:BaseAction
-BaseAction::BaseAction(){};
+BaseAction::BaseAction():errorMsg(""),status(COMPLETED){};
 ActionStatus BaseAction::getStatus() const{
     return status;
 };
@@ -18,32 +18,45 @@ void BaseAction::error(std::string errorMsg){
 std::string BaseAction::getErrorMsg() const{
     return errorMsg;
 }
+BaseAction::~BaseAction()=default;
 
+void BaseAction::set_status(ActionStatus status){
+    this->status = status;
+}
+void BaseAction::set_error_msg(string errormsg){
+    this->errorMsg = errormsg;
+}
 // class:openTrainer
 
-OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList):trainerId(id),customers(customersList){
+OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList):trainerId(id),customers(customersList),customers_descriptions(""){
 };
 void OpenTrainer::act( Studio& studio){
     Trainer* t = studio.getTrainer(trainerId);
     if (t==nullptr||t->isOpen()){
         BaseAction::error("Workout session does not exist or is already open.");
         std::cout<<BaseAction::getErrorMsg()<<endl;
+        for(Customer* c :customers)
+            delete c;
+        customers.clear();
         }
+        
     else {
         t->openTrainer();
-        int counter = 0,length = customers.size(),capacity = t->getCapacity();
-         for (size_t i = 0;i<length; i++)
+        size_t length = customers.size(),capacity = t->getCapacity();
+         for (size_t i = 0;i < length; i++)
          {
              //only add customer if there is space
              if(i<capacity)
                 t->addCustomer(customers[i]);
             //else delete the customer to avoid memory leak
-            else
+            else{
                 delete customers[i];
+                customers.erase(customers.begin()+i);
+            }
          }
          complete();
     }
-    for(Customer *c : customers){
+    for(Customer *c :customers){
         customers_descriptions+=c->toString() + " ";
     }
     
@@ -57,9 +70,17 @@ std::string OpenTrainer::toString() const{
 }
 
 OpenTrainer* OpenTrainer::clone(){
-    return (new OpenTrainer(trainerId,customers));
+    OpenTrainer *t = new OpenTrainer(trainerId,customers);
+    t->set_status(this->getStatus());
+    t->set_error_msg(this->getErrorMsg());
+    t->set_customers_descriptions(customers_descriptions);
+    return t;
 }
+OpenTrainer::~OpenTrainer() = default;
 
+void OpenTrainer::set_customers_descriptions(string Customers_descirption){
+    this->customers_descriptions = Customers_descirption;
+}
 
 // class:Order
 
@@ -96,8 +117,12 @@ std::string Order::toString() const{
     return s;
 }
 Order* Order::clone(){
-    return (new Order(trainerId));
+    Order *action = new Order(trainerId);
+    action->set_status(this->getStatus());
+    action->set_error_msg(this->getErrorMsg());
+    return (action);
 }
+Order::~Order()=default;
 
 // class MoveCustomer:
 
@@ -136,15 +161,18 @@ void MoveCustomer::act(Studio &studio){
 
 std::string MoveCustomer::toString() const{
     string s = "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer);
-    s = " " + std::to_string(id);
+    s = s + " " + std::to_string(id);
     string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
     s = s + " " + action_status;
     return s;
 }
 MoveCustomer* MoveCustomer::clone(){
-    return (new MoveCustomer(srcTrainer,dstTrainer,id));
+    MoveCustomer *action = new MoveCustomer(srcTrainer,dstTrainer,id);
+    action->set_status(this->getStatus());
+    action->set_error_msg(this->getErrorMsg());
+    return (action);
 }
-
+MoveCustomer::~MoveCustomer()=default;
 //class close:
 
 Close::Close(int id):trainerId(id){};
@@ -170,8 +198,14 @@ std::string Close::toString()const{
     return s;
 }
 Close* Close::clone(){
-    return (new Close(trainerId));
+    Close *action = new Close(trainerId);
+    action->set_status(this->getStatus());
+    action->set_error_msg(this->getErrorMsg());
+    return (action);
 }
+Close::~Close() = default;
+
+//class closall
 
 CloseAll::CloseAll(){};
 
@@ -185,8 +219,12 @@ std::string CloseAll::toString() const{
     return s;
 };
 CloseAll* CloseAll::clone(){
-    return (new CloseAll());
+    CloseAll *action = new CloseAll();
+    action->set_status(this->getStatus());
+    action->set_error_msg(this->getErrorMsg());
+    return (action);
 }
+CloseAll::~CloseAll() = default;
 
 //class PrintWorkoutOptions : public BaseAction 
 
@@ -207,6 +245,7 @@ std::string PrintWorkoutOptions::toString() const{
 PrintWorkoutOptions* PrintWorkoutOptions::clone(){
     return (new PrintWorkoutOptions());
 }
+PrintWorkoutOptions::~PrintWorkoutOptions()=default;
 
 //class PrintTrainerStatus : public BaseAction {
 
@@ -217,6 +256,7 @@ void PrintTrainerStatus::act(Studio &studio){
     if(trainer != nullptr){
         string status = trainer->isOpen() ? "open" : "close";
         std::cout<< "Trainer "<<trainerId<<" status: "<<status<<"\n";
+        if(trainer->isOpen()){
         vector<Customer*> customers = trainer->getCustomers();
         std::cout<<"Customers:\n";
         for(Customer* c: customers){
@@ -227,10 +267,11 @@ void PrintTrainerStatus::act(Studio &studio){
         for(OrderPair order : orders){
             if(order.first!=-1){
             std::cout<<order.second.getName()<<" "<<order.second.getPrice();
-            std::cout<<" "<<trainer->getCustomer(order.first)->getName()<<endl;
+            std::cout<<"NIS "<<trainer->getCustomer(order.first)->getId()<<endl;
             }
         }
-        std:cout<< "Current Trainer's Salary: "<<trainer->getSalary()<<" NIS\n";
+        cout<< "Current Trainer's Salary: "<<trainer->getSalary()<<" NIS\n";
+    }
     }
     complete();
     studio.log_action(this);
@@ -244,7 +285,8 @@ string PrintTrainerStatus::toString() const{
 PrintTrainerStatus* PrintTrainerStatus::clone(){
     return (new PrintTrainerStatus(trainerId));
 }
-//class PrintActionsLog : public BaseAction {
+PrintTrainerStatus::~PrintTrainerStatus()=default;
+//class PrintActionsLog : public BaseAction 
 
 PrintActionsLog::PrintActionsLog():BaseAction(){};
 
@@ -263,4 +305,53 @@ std::string PrintActionsLog::toString() const {
 PrintActionsLog* PrintActionsLog::clone(){
     return (new PrintActionsLog());
 }
+PrintActionsLog::~PrintActionsLog() =default;
 
+//class backupStudio:
+
+BackupStudio::BackupStudio(){};
+void BackupStudio::act(Studio &studio){
+    //TODO : need to make sure there is no memory leak if used twice in a row
+    *backup = studio;
+    complete();
+    studio.log_action(this);
+}
+std::string BackupStudio::toString() const{
+    string s = "backup Completed";
+    return s;
+}
+BackupStudio* BackupStudio::clone(){
+    return new BackupStudio();
+}
+BackupStudio::~BackupStudio() = default;
+
+//class RestoreStudio:
+
+RestoreStudio::RestoreStudio(){};
+
+void RestoreStudio::act(Studio &studio){
+    if(backup==nullptr){
+        BaseAction::error("No backup available");
+        std::cout<<BaseAction::getErrorMsg()<<endl;
+    }
+    else{ 
+        studio = *backup;
+        complete();
+    }
+    studio.log_action(this);
+}
+
+
+std::string RestoreStudio::toString() const {
+    string s = "restore";
+    string action_status = getStatus()==COMPLETED ? "Completed" : getErrorMsg();
+    s = s + " " + action_status;
+    return s;
+}
+RestoreStudio* RestoreStudio::clone(){
+    RestoreStudio *action = new RestoreStudio();
+    action->set_status(this->getStatus());
+    action->set_error_msg(this->getErrorMsg());
+    return (action);
+}
+RestoreStudio::~RestoreStudio() = default;

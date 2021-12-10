@@ -17,9 +17,7 @@ static std::string getWord(std::string &input, char sep=' '){
     std::size_t endIndex = input.find_first_of(sep);
     if(endIndex == std::string::npos){
     word = input;
-    std::size_t endIndex = input.length();
     input = "";
-
     }else{
     word = input.substr(0, endIndex);
     input = input.substr(endIndex+1);
@@ -31,7 +29,7 @@ static std::string getWord(std::string &input, char sep=' '){
 }
 
 
-static Customer* builsCustomer(std::string name, std::string strategy, Studio &studio){
+static Customer* buildCustomer(std::string name, std::string strategy, Studio &studio){
     Customer *customer;
     if(strategy.compare("swt") == 0){ //Sweaty Customer
         customer = new SweatyCustomer(name,studio.getCustomerId());
@@ -52,41 +50,21 @@ static Customer* builsCustomer(std::string name, std::string strategy, Studio &s
 
 
 static BaseAction* buildAction(std::string input, Studio &studio){
-    // std::size_t startIndex = 0;
     BaseAction *action;
     std::string stop;
     std::string actionType = getWord(input);
-
-    //std::cout << actionType;
-
-
     if(actionType.compare("open") == 0){
         // <traner Id> <customer1_name>,<customer1_strategy> <customer2_name>,<customer2_strategy>
         int trainerId = std::stoi(getWord(input));
-
-        // std::cout << "\n trainer ID = " << trainerId;
-
-        Customer *newCostumer;
-        std::vector<Customer*> *customersList = new vector<Customer*>();
+        Customer *newCustomer;
+        std::vector<Customer*> customersList;
         while( input.length() != 0){
             std::string name = getWord(input, ',');
             std::string strategy = getWord(input);
-   
-            // need to figure out how is deleting customers.
-            newCostumer = builsCustomer(name, strategy, studio);
-
-            // std::vector<int> workout_orders = newCostumer->order(studio.getWorkoutOptions());
-            // std::cout << newCostumer->getName() << " orders:\n";
-            // for(int i : workout_orders){
-            //     std::cout << i << "\n";
-            // }
-            customersList->push_back(newCostumer);
-
-            // set the trainer vector of customers
+            newCustomer = buildCustomer(name, strategy, studio);
+            customersList.push_back(newCustomer);
         }
-
-        // std::getline(std::cin, stop);
-        action = new OpenTrainer(trainerId, *customersList);  
+        action = new OpenTrainer(trainerId,customersList);  
     }
 
     else if(actionType.compare("order") == 0){
@@ -120,13 +98,14 @@ static BaseAction* buildAction(std::string input, Studio &studio){
         action = new PrintActionsLog();
         
     }
-    //else if(actionType.compare("backup") == 0){
-    //     action = new BackupStudio();
+    else if(actionType.compare("backup") == 0){
+        action = new BackupStudio();
         
-    // }else if(actionType.compare("restore") == 0){
-    //     action = new RestoreStudio();
-    return action;
+    }else if(actionType.compare("restore") == 0){
+        action = new RestoreStudio();
     }
+        return action;
+}
     
     
 int main(int argc, char** argv){
@@ -140,10 +119,12 @@ int main(int argc, char** argv){
     bool run = true;
     while(run){
         std::string input;
-        std::cout << "please enter the requested action: "<< std::endl;
         std::getline(std::cin, input);
         BaseAction *action = buildAction(input,studio);
         action->act(studio);
+        action = nullptr;
+        if(input=="closeall")
+            break;
     }
     if(backup!=nullptr){
     	delete backup;

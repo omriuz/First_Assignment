@@ -1,65 +1,116 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.1
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2014 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
+ 
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Nov 18 21:12:41 2021
+ 
+# Make data base, printed on Wed Nov 24 08:27:23 2021
+ 
 
 # Variables
+ 
 
+ 
 # 'override' directive
+ 
 GNUMAKEFLAGS := 
+ 
 # automatic
+ 
 <D = $(patsubst %/,%,$(dir $<))
+ 
 # automatic
+ 
 ?F = $(notdir $?)
+ 
 # environment
+ 
 DESKTOP_SESSION = ubuntu
+ 
 # default
+ 
 .SHELLFLAGS := -c
+ 
 # environment
+ 
 SNAP_COMMON = /var/snap/code/common
+ 
 # environment
+ 
 XDG_SESSION_TYPE = x11
+ 
 # environment
+ 
 VSCODE_LOG_NATIVE = false
+ 
 # automatic
+ 
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 2
+ 
 # automatic
+ 
 @D = $(patsubst %/,%,$(dir $@))
+ 
 # environment
+ 
 XAUTHORITY = /run/user/1000/gdm/Xauthority
+ 
 # environment
+ 
 GDMSESSION = ubuntu
+ 
 # environment
+ 
 XMODIFIERS = @im=ibus
+ 
 # makefile
+ 
 CURDIR := /home/spl211/First_assignment
+ 
 # makefile
+ 
 SHELL = /bin/sh
+ 
 # environment
-SNAP_DATA = /var/snap/code/81
+ 
+SNAP_DATA = /var/snap/code/82
+ 
 # environment
+ 
+VTE_VERSION = 5201
+ 
+# environment
+ 
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+ 
 # environment
-_ = /snap/code/81/usr/share/code/code
-# environment
+ 
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+ 
 # environment
+ 
 SNAP_INSTANCE_NAME = code
+ 
 # environment
+ 
 SNAP_ARCH = amd64
+ 
 # makefile (from 'makefile', line 1)
+ 
 MAKEFILE_LIST :=  makefile
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+IM_CONFIG_PHASE = 2
 # environment
 USERNAME = spl211
 # environment
@@ -73,9 +124,9 @@ CLUTTER_IM_MODULE = xim
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/spl211
+VSCODE_CWD = /home/spl211/First_assignment
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/81/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/82/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -91,9 +142,9 @@ GDK_PIXBUF_MODULE_FILE = /home/spl211/snap/code/common/.cache/gdk-pixbuf-loaders
 # environment
 TEXTDOMAIN = im-config
 # environment
-SNAP = /snap/code/81
+SNAP = /snap/code/82
 # environment
-SNAP_VERSION = 3a6960b9
+SNAP_VERSION = ccbaa2d2
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -103,17 +154,15 @@ DISABLE_WAYLAND = 1
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=e711df3d-bc6f-467f-a440-d8d64bc13441&iid=e711df3d-bc6f-467f-a440-d8d64bc13441&sid=e711df3d-bc6f-467f-a440-d8d64bc13441","uploadToServer":true}
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/81/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/82/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 11776
 # automatic
 %F = $(notdir $%)
 # environment
@@ -143,7 +192,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/3a6960b964327f0e3882ce18fcebd07ed191b316
+VSCODE_CODE_CACHE_PATH = /home/spl211/.config/Code/CachedData/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247
 # environment
 LOGNAME = spl211
 # environment
@@ -170,6 +219,8 @@ XDG_VTNR = 1
 MAKELEVEL := 0
 # environment
 SNAP_REAL_HOME = /home/spl211
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -177,19 +228,19 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/spl211/snap/code/81
+SNAP_USER_DATA = /home/spl211/snap/code/82
 # environment
 SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c54e5db9-d159-469d-b71a-4a94f9dd6f38.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b80ad662-a1fe-4710-831c-00d6a451ee6b.sock
 # environment
 XDG_SESSION_ID = 1
 # environment
 USER = spl211
 # environment
-SNAP_REVISION = 81
+SNAP_REVISION = 82
 # makefile
 .DEFAULT_GOAL := all
 # environment
@@ -198,14 +249,14 @@ XDG_CURRENT_DESKTOP = Unity
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/spl211
 # default
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.2-main.sock
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c561ef83-1.62.3-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -240,8 +291,12 @@ LC_ALL = C
 QT4_IM_MODULE = xim
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/bd3cf802_7f63_499c_98d1_d3d454324041
 # automatic
 ^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.16981
 # default
 SUFFIXES := 
 # environment
@@ -259,9 +314,11 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 11848
+TERM = xterm-256color
+# environment
+VSCODE_PID = 27359
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=20/153=13%
+# Load=127/1024=12%, Rehash=0, Collisions=18/155=12%
 
 # Pattern-specific Variable Values
 
@@ -278,14 +335,13 @@ VSCODE_PID = 11848
 # No implicit rules.
 
 # Files
- 
 
 bin/Customer.o: src/Customer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 19:24:08.610003999
+#  Last modified 2021-11-24 08:23:54.806
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 24):
+#  recipe to execute (from 'makefile', line 31):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Customer.o src/Customer.cpp
 
 all: run
@@ -300,33 +356,35 @@ all: run
 # Not a target:
 src/Studio.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-18 20:58:59.870003999
+#  Last modified 2021-11-23 21:15:11.293
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Action.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-18 21:09:00.294003999
+#  Last modified 2021-11-23 21:36:15.221
 #  File has been updated.
 #  Successfully updated.
 
 bin/Studio.o: src/Studio.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 21:03:30.266003999
+#  Last modified 2021-11-24 08:23:53.994
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 18):
+#  recipe to execute (from 'makefile', line 25):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Studio.o src/Studio.cpp 
 
 bin/Action.o: src/Action.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 21:09:04.754003999
+#  Last modified 2021-11-24 08:23:55.39
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 27):
+#  recipe to execute (from 'makefile', line 34):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
+ 
 
+ 
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
@@ -336,7 +394,7 @@ bin/Action.o: src/Action.cpp
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 19:21:02.205800025
+#  Last modified 2021-11-24 08:23:42.678
 #  File has been updated.
 #  Successfully updated.
 
@@ -349,14 +407,14 @@ makefile:
 # Not a target:
 src/Workout.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-14 13:13:11.511
+#  Last modified 2021-11-22 22:40:04
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/Trainer.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-18 21:04:05.246003999
+#  Last modified 2021-11-23 21:00:22.017
 #  File has been updated.
 #  Successfully updated.
 
@@ -384,7 +442,7 @@ run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Acti
 # ? := bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'makefile', line 7):
+#  recipe to execute (from 'makefile', line 11):
 	@echo 'Building target: run'
 	@echo 'Invoking: C++ Linker'
 	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o bin/Customer.o
@@ -395,63 +453,83 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 34):
+#  recipe to execute (from 'makefile', line 41):
 	@echo 'cleaning'
 	rm -f bin/*
 
 bin/Workout.o: src/Workout.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 19:24:08.806003999
+#  Last modified 2021-11-24 08:23:54.954
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 30):
+#  recipe to execute (from 'makefile', line 37):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
 	
 
 bin/Trainer.o: src/Trainer.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 21:07:53.462003999
+#  Last modified 2021-11-24 08:23:54.334
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 21):
+#  recipe to execute (from 'makefile', line 28):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Trainer.o src/Trainer.cpp
 
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 17:48:38.653800025
+#  Last modified 2021-11-23 21:21:40.129
 #  File has been updated.
 #  Successfully updated.
 
+assembly: src/compileTimeStack.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 18):
+	g++ -S -O0 src/compileTimeStack.cpp
+
 bin/main.o: src/main.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 19:24:06.838003999
+#  Last modified 2021-11-24 08:23:53.446
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 15):
+#  recipe to execute (from 'makefile', line 22):
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/main.o src/main.cpp 
+
+check: run
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 6):
+	valgrind --leak-check=yes bin/run ExmapleInput.txt
+
+# Not a target:
+src/compileTimeStack.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/Customer.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-12 19:54:16.341800025
+#  Last modified 2021-11-23 20:03:16.641
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=1/50=2%
+# Load=21/1024=2%, Rehash=0, Collisions=1/55=2%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 304 B / avg = 10 B
-# current buf: size = 8162 B / used = 304 B / count = 29 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 32 / storage = 344 B / avg = 10 B
+# current buf: size = 8162 B / used = 344 B / count = 32 / avg = 10 B
 
-# strcache performance: lookups = 51 / hit rate = 43%
+# strcache performance: lookups = 57 / hit rate = 43%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=1/51=2%
-# Finished Make data base on Thu Nov 18 21:12:41 2021
+# Load=32/8192=0%, Rehash=0, Collisions=1/57=2%
+# Finished Make data base on Wed Nov 24 08:27:23 2021
 
  

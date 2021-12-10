@@ -1,6 +1,10 @@
 # All Targets
 all: run
 
+
+check: run
+	valgrind --leak-check=yes bin/run ExmapleInput.txt
+
 # Tool invocations
 
 run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
@@ -9,6 +13,9 @@ run: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Acti
 	g++ -o bin/run bin/main.o bin/Studio.o bin/Trainer.o bin/Workout.o bin/Action.o bin/Customer.o
 	@echo 'Finished building target: run'
 	@echo ' '
+
+assembly: src/compileTimeStack.cpp
+	g++ -S -O0 src/compileTimeStack.cpp
 
 # Depends on the source and header files
 bin/main.o: src/main.cpp 
